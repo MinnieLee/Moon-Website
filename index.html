@@ -3,44 +3,65 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Moon Website</title>
+	<title>Tracking the Scroll Position</title>
 
 	<style>
+		:root {
+			--Position: 0;
+			--Shape: 0;
+		}
 		@font-face {
 			font-family: "Moon";
-			src: url("");
+			src: url("./Font/Moon.ttf");
 		}
-		.original-animated1-animated2 {
-			font-family: "Moon";
-			font-variation-settings: "SHAP" 0, "POSE" 0;
-			font-size: 50px;
-			transition: font-variation-settings .5s;
+		body {
+			margin: 0;
+		}
+		.container {
+			width: 100vw;
+			height: 5000px;
+		}
+		.moon-position {
+			width: 100vw;
+			height: 100vh;
+			position: sticky;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			top: 0;
+			font-family: "Moon", sans-serif;
+			font-variation-settings: "POSE" var(--Position), "SHAP" var(--Shape);
+			font-size: 100px;
+			margin: 0;
 		}
 	</style>
 </head>
 
 <body>
-	<p class="original-animated1-animated2" id="my-element" contenteditable="plaintext-only">Moon</p>
+	<div class="container">
+		<p class="moon-position" contenteditable="plaintext-only">MOON</p>
+	</div>
 
 	<script>
-		// Target the element
-		var myElement = document.querySelector('#my-element');
+		const root = document.documentElement;
 
-		// Function to randomize values
-		function randomizeValues() {
-			var randomNumber1 = Math.random(); // generates a random number between 0 and 1
-			var randomNumberAdjusted1 = randomNumber1*100; // converts number to range 0–100
-			var randomNumberRounded1 = Math.round(randomNumberAdjusted1); // round that number to an integer
-			console.log(randomNumberRounded1); // log the number so we can see it in the console (for bug testing)
+		window.onscroll = function() {
+			// Total scrollable height of the container
+			const scrollHeight = document.body.scrollHeight - window.innerHeight;
+			// Pixels scrolled down the page
+			const scrollPosition = window.scrollY;
+			
+			// Calculate the percentage scrolled (0 to 1)
+			let percentScrolled = scrollPosition / scrollHeight;
+			// Limit to 0-1 range
+			percentScrolled = Math.min(Math.max(percentScrolled, 0), 1);
 
-			// Same process with a new number, this time in a single line
-			var randomNumberRounded2 = Math.round(Math.random()*100);
-			console.log(randomNumberRounded2);
+			// Map scroll percentage to the range 0–100 for the font axes
+			const axisValue = Math.round(percentScrolled * 1000);
 
-			myElement.style.fontVariationSettings = `"SHAP" ${randomNumberRounded1}, "POSE" ${randomNumberRounded2}`;
-		}
-
-		setInterval(randomizeValues, 500);
+			// Update CSS variables
+			root.style.setProperty('--Position', axisValue);
+		};
 	</script>
 </body>
 </html>
