@@ -1,209 +1,315 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Minnie_Moon Observation</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Minnie_Moon Observation</title>
 
-   <style>
-       :root {
-           --Position: 0;
-           --POSE: 0;
-       }
-       @font-face {
-           font-family: "Moon";
-           src: url("./Font/Moon.ttf");
-       }
-       body {
-           margin: 0;
-           overflow-y: scroll;
-           background-color: black;
-           color: white;
-           font-family: "Moon", sans-serif;
-           font-size: 40px;
-       }
+	<style>
+		:root {
+			--Position: 0;
+			--POSE: 0;
+			--Shape: 0;
+			--SHAP: 0;
+			--FontSize: 32px;
 
-       .video-background {
-           position: fixed;
-           top: 50%;
-           left: 50%;
-           transform: translate(-50%, -50%);
-           width: 70%;
-           height: auto;
-           object-fit: cover;
-           z-index: -1;
-       }
+			--type-tester-shape: 0;
+			--type-tester-position: 0;
+		}
 
-       .container {
-           width: 100vw;
-           height: 200vh;
-           position: relative;
-           z-index: 1;
-       }
+		@font-face {
+			font-family: "Moon";
+			src: url("./Font/Moon.ttf");
+		}
 
-       .moon-position {
-           width: 100vw;
-           height: 100vh;
-           position: sticky;
-           display: flex;
-           align-items: center;
-           justify-content: center;
-           top: 0;
-           font-variation-settings: "POSE" var(--Position);
-           font-size: 110px;
-           color: white;
-           margin: 0;
-           z-index: 2;
-       }
+		body {
+			margin: 0;
+			overflow-y: scroll;
+			background-color: black;
+			color: white;
+			font-family: "Moon", sans-serif;
+			font-size: 40px;
+			min-height: 100vh;
+		}
 
-       .black-section {
-           width: 100vw;
-           height: 100vh;
-           background-color: black;
-           display: flex;
-           flex-direction: column;
-           align-items: center;
-           justify-content: center;
-           padding-top: 20px;
-           z-index: 1;
-       }
+		.moon {
+			font-variation-settings: "POSE" var(--type-tester-position), "SHAP" var(--type-tester-shape);
+			font-size: var(--FontSize);
+			border: 2px solid white;
+			padding: 20px;
+			margin: 20px;
+			text-align: center;
+			width: 100%;
+			max-width: 800px;
+			box-sizing: border-box;
+		}
 
-       .static-image {
-           width: 50%;
-           margin-top: -10px;
-           margin-bottom: 10px;
-       }
+		.video-background {
+			position: fixed;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			width: 70%;
+			height: auto;
+			object-fit: cover;
+			z-index: -1;
+		}
 
-       .typeface-header {
-           position: fixed;
-           top: 10px;
-           left: 50%;
-           transform: translateX(-50%);
-           font-size: 70px;
-           opacity: 0;
-           transition: opacity 0.5s ease, font-size 0.5s ease;
-           z-index: 3;
-       }
+		.container {
+			width: 100vw;
+			height: 200vh;
+			position: relative;
+			z-index: 1;
+		}
 
-       .show-typeface {
-           opacity: 1;
-       }
+		.moon-position {
+			width: 100vw;
+			height: 100vh;
+			position: sticky;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			top: 0;
+			font-size: 110px;
+			color: white;
+			margin: 0;
+			z-index: 2;
+			font-variation-settings: "POSE" var(--Position), "SHAP" var(--Shape);
+		}
 
-       #slider-container {
-           display: flex;
-           flex-direction: column;
-           align-items: center;
-           justify-content: center;
-           margin-top: 10px;
-       }
+		.black-section {
+			width: 100vw;
+			height: 100vh;
+			background-color: black;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			padding-top: 20px;
+			z-index: 1;
+		}
 
-       #slider-labels {
-           display: flex;
-           align-items: center;
-           justify-content: space-between;
-           width: 320px;
-           margin-bottom: 5px;
-       }
+		.static-image {
+			display: block;
+			width: 50%;
+			margin-top: 10px;
+			margin-bottom: 30px;
+		}
 
-       .slider-label-left,
-       .slider-label-right {
-           font-size: 20px;
-           color: white;
-       }
+		.typeface-header {
+			position: fixed;
+			top: 10px;
+			left: 50%;
+			transform: translateX(-50%);
+			font-size: 70px;
+			opacity: 0;
+			transition: opacity 0.5s ease, font-size 0.5s ease;
+			z-index: 3;
+		}
 
-       input[type="range"] {
-           width: 300px;
-           height: 10px;
-           background: gray;
-           outline: none;
-           -webkit-appearance: none;
-           appearance: none;
-           opacity: 0.7;
-           transition: opacity 0.2s;
-           margin: 0 5px;
-       }
+		.h1 {
+			position: fixed;
+			justify-content: center;
+			top: 10px;
+			left: 50%;
+			font-size: 40px;
 
-       input[type="range"]::-webkit-slider-thumb {
-           -webkit-appearance: none;
-           appearance: none;
-           width: 20px;
-           height: 20px;
-           background: #ffffff;
-           cursor: pointer;
-           border-radius: 50%;
-       }
+		}
 
-       #alphabet-display {
-           font-family: "Moon", sans-serif;
-           font-size: 60px;
-           font-variation-settings: "POSE" var(--POSE);
-           margin-top: 20px;
-       }
-   </style>
+		.show-typeface {
+			opacity: 1;
+		}
+
+		#slider-container {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			/* margin-top: -130px; */
+		}
+
+		.slider-desc {
+			text-align: center;
+			text-transform: uppercase;
+		}
+
+		#slider-labels {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			width: 350px;
+			height: 5px;
+			margin-bottom: 5px;
+		}
+
+		.slider-label-left,
+		.slider-label-right {
+			font-size: 40px;
+			color: white;
+			white-space: nowrap;
+		}
+
+		input[type="range"] {
+			width: 300px;
+			height: 10px;
+			background: gray;
+			outline: none;
+			-webkit-appearance: none;
+			appearance: none;
+			opacity: 0.7;
+			transition: opacity 0.2s;
+			margin: 0 5px;
+		}
+
+		input[type="range"]::-webkit-slider-thumb {
+			-webkit-appearance: none;
+			appearance: none;
+			width: 20px;
+			height: 20px;
+			background: #ffffff;
+			cursor: pointer;
+			border-radius: 50%;
+		}
+
+		.alphabet-display {
+			font-family: "Moon", sans-serif;
+			font-size: 7vw;
+			font-variation-settings: "POSE" var(--POSE), "SHAP" 0;
+			margin-top: 10px;
+			text-align: center;
+		}
+
+		.type-tester {
+			background-color: black;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			text-transform: uppercase;
+		}
+
+		.type-tester-slider-container {
+			display: flex;
+			align-items: center;
+			flex-wrap: wrap;
+			justify-content: center;
+		}
+
+		.type-tester-heading {
+			font-size: 10vw;
+			font-weight: normal;
+		}
+	</style>
 </head>
 
 <body>
-   <!-- Background Video -->
-   <video class="video-background" autoplay muted loop>
-       <source src="Moon.mp4" type="video/mp4">
-       Your browser does not support the video tag.
-   </video>
 
-   <!-- Initial scrollable container with sticky text -->
-   <div class="container">
-       <p class="moon-position" contenteditable="plaintext-only">MOON</p>
-   </div>
+	<video class="video-background" autoplay muted loop>
+		<source src="Moon.mp4" type="video/mp4">
+	</video>
 
-   <!-- Additional black section after scroll -->
-   <div class="black-section">
-       <!-- Static Image Above the Slider -->
-       <img class="static-image" src="Moon Phase.jpg" alt="Moon Phase Image">
-       
-       <!-- Slider to control 'POSE' -->
-       <div id="slider-container">
-           <div id="slider-labels">
-               <span class="slider-label-left">NEW</span>
-               <input id="pose-slider" type="range" min="0" max="1000" value="0">
-               <span class="slider-label-right">FULL</span>
-           </div>
-           <p>Keep Exploring the Darkness</p>
-           
-           <!-- Alphabet display that changes with slider -->
-           <div id="alphabet-display">A B C D E F G H I J K L M N O P Q R S T U V W X Y Z</div>
-       </div>
-   </div>
+	<div class="container">
+		<p class="moon-position" contenteditable="plaintext-only">MOON</p>
+	</div>
 
-   <!-- Fixed Header Text -->
-   <div id="typeface-header" class="typeface-header">TYPEFACE</div>
+	<div class="black-section">
+		<img class="static-image" src="Moon Phase.jpg" alt="Moon Phase Image">
 
-   <script>
-       const root = document.documentElement;
-       const typefaceHeader = document.getElementById('typeface-header');
-       const poseSlider = document.getElementById('pose-slider');
+		<div id="slider-container">
+			<div id="slider-labels">
+				<span class="slider-label-left">NEW</span>
+				<input id="pose-slider" type="range" min="0" max="1000" value="0">
+				<span class="slider-label-right">FULL</span>
+			</div>
+			<p class="slider-desc">Keep Exploring the Darkness</p>
 
-       // Update 'POSE' using the slider
-       poseSlider.addEventListener('input', (event) => {
-           const poseValue = event.target.value;
-           root.style.setProperty('--POSE', poseValue);
-       });
+			<div class="alphabet-display">A B C D E F G H I J K L M N </div>
+			<div class="alphabet-display">O P Q R S T U V W X Y Z</div>
+		</div>
+	</div>
 
-       // Scroll behavior for the "TYPEFACE" text
-       window.onscroll = function() {
-           const scrollHeight = document.querySelector('.container').scrollHeight - window.innerHeight;
-           const scrollPosition = window.scrollY;
-           let percentScrolled = scrollPosition / scrollHeight;
-           percentScrolled = Math.min(Math.max(percentScrolled, 0), 1);
-           const axisValue = Math.round(percentScrolled * 1000);
-           root.style.setProperty('--Position', axisValue);
+	<div id="typeface-header" class="typeface-header">TYPEFACE</div>
 
-           const containerHeight = document.querySelector('.container').offsetHeight;
-           const offset = 500;
-           if (scrollPosition > containerHeight - window.innerHeight + offset) {
-               typefaceHeader.classList.add('show-typeface');
-           } else {
-               typefaceHeader.classList.remove('show-typeface');
-           }
-       };
-   </script>
+	<div class="type-tester">
+
+		<h2 class="type-tester-heading">TYPE TESTER</h2>
+		<p class="moon" contenteditable="plaintext-only">Type here!</p>
+
+		<!-- Sliders for controlling the text properties -->
+
+		<div class="type-tester-slider-container">
+			<label for="font-size">Font Size: <span id="current-font-size">32</span>px</label>
+			<input name="font-size" type="range" min="10" max="100" value="32" oninput="setFontSize(this.value)">
+			<span id="current-font-size">100px</span>
+		</div>
+
+		<div class="type-tester-slider-container">
+			<label for="Shape">Stretch: <span id="current-shape">0</span></label>
+			<input name="Shape" type="range" min="0" max="1000" value="1000" oninput="setShape(this.value)">
+			<span id="current-shape">1000</span>
+		</div>
+		<div class="type-tester-slider-container">
+			<label for="Position">Roundness: <span id="current-position">0</span></label>
+			<input name="Position" type="range" min="0" max="1000" value="0" oninput="setPosition(this.value)">
+			<span id="current-position">1000</span>
+		</div>
+
+	</div>
+
+	<script>
+		const root = document.documentElement;
+		const moonElement = document.querySelector('.moon');
+
+		// Function to set Stretch value
+		function setShape(value) {
+			root.style.setProperty('--type-tester-shape', value);
+			document.getElementById('current-shape').textContent = value;
+		}
+
+		// Function to set Font Size
+		function setFontSize(value) {
+			root.style.setProperty('--FontSize', value + 'px');
+			document.getElementById('current-font-size').textContent = value;
+		}
+
+		// Function to set Roundness (POSE value)
+		function setPosition(value) {
+			root.style.setProperty('--type-tester-position', value);
+			document.getElementById('current-position').textContent = value;
+		}
+	</script>
+
+	<script>
+		const typefaceHeader = document.getElementById('typeface-header');
+		const poseSlider = document.getElementById('pose-slider');
+
+		// Update 'POSE' using the slider
+		poseSlider.addEventListener('input', (event) => {
+			const poseValue = event.target.value;
+			root.style.setProperty('--POSE', poseValue);
+		});
+
+		// Scroll behavior for the "TYPEFACE" text
+		window.onscroll = function () {
+			const scrollHeight = document.querySelector('.container').scrollHeight - window.innerHeight;
+			const scrollPosition = window.scrollY;
+			let percentScrolled = scrollPosition / scrollHeight;
+			percentScrolled = Math.min(Math.max(percentScrolled, 0), 1);
+			const axisValue = Math.round(percentScrolled * 1000);
+			root.style.setProperty('--Position', axisValue);
+
+			const containerHeight = document.querySelector('.container').offsetHeight;
+			const offset = 500;
+			if (scrollPosition > containerHeight - window.innerHeight + offset) {
+				typefaceHeader.classList.add('show-typeface');
+			} else {
+				typefaceHeader.classList.remove('show-typeface');
+			}
+		};
+	</script>
+
+
 </body>
+
 </html>
