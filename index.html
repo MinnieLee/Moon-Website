@@ -1,105 +1,209 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Tracking the Scroll Position</title>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Minnie_Moon Observation</title>
 
-	<style>
-		:root {
-			--Position: 0;
-			--Shape: 0;
-		}
-		@font-face {
-			font-family: "Moon";
-			src: url("./Font/Moon.ttf");
-		}
-		body {
-			margin: 0;
-			overflow-y: scroll; /* Enable vertical scrolling */
-			background-color: black;
-		}
-		.video-background {
-			position: fixed;
-			top: 0;
-			left: 0;
-			width: 70%; /* Shrink video to 70% of viewport */
-			height: auto;
-			object-fit: cover;
-			z-index: -1;
-			transform: translate(-50%, -50%);
-			left: 50%;
-			top: 50%;
-		}
-		.container {
-			width: 100vw;
-			height: 5000px;
-			z-index: 1;
-			position: relative;
-		}
-		.moon-position {
-			width: 100vw;
-			height: 100vh;
-			position: sticky;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			top: 0;
-			font-family: "Moon", sans-serif;
-			font-variation-settings: "POSE" var(--Position), "SHAP" var(--Shape);
-			font-size: 110px;
-			color: white;
-			margin: 0;
-			z-index: 2;
-		}
-	</style>
+   <style>
+       :root {
+           --Position: 0;
+           --POSE: 0;
+       }
+       @font-face {
+           font-family: "Moon";
+           src: url("./Font/Moon.ttf");
+       }
+       body {
+           margin: 0;
+           overflow-y: scroll;
+           background-color: black;
+           color: white;
+           font-family: "Moon", sans-serif;
+           font-size: 40px;
+       }
+
+       .video-background {
+           position: fixed;
+           top: 50%;
+           left: 50%;
+           transform: translate(-50%, -50%);
+           width: 70%;
+           height: auto;
+           object-fit: cover;
+           z-index: -1;
+       }
+
+       .container {
+           width: 100vw;
+           height: 200vh;
+           position: relative;
+           z-index: 1;
+       }
+
+       .moon-position {
+           width: 100vw;
+           height: 100vh;
+           position: sticky;
+           display: flex;
+           align-items: center;
+           justify-content: center;
+           top: 0;
+           font-variation-settings: "POSE" var(--Position);
+           font-size: 110px;
+           color: white;
+           margin: 0;
+           z-index: 2;
+       }
+
+       .black-section {
+           width: 100vw;
+           height: 100vh;
+           background-color: black;
+           display: flex;
+           flex-direction: column;
+           align-items: center;
+           justify-content: center;
+           padding-top: 20px;
+           z-index: 1;
+       }
+
+       .static-image {
+           width: 50%;
+           margin-top: -10px;
+           margin-bottom: 10px;
+       }
+
+       .typeface-header {
+           position: fixed;
+           top: 10px;
+           left: 50%;
+           transform: translateX(-50%);
+           font-size: 70px;
+           opacity: 0;
+           transition: opacity 0.5s ease, font-size 0.5s ease;
+           z-index: 3;
+       }
+
+       .show-typeface {
+           opacity: 1;
+       }
+
+       #slider-container {
+           display: flex;
+           flex-direction: column;
+           align-items: center;
+           justify-content: center;
+           margin-top: 10px;
+       }
+
+       #slider-labels {
+           display: flex;
+           align-items: center;
+           justify-content: space-between;
+           width: 320px;
+           margin-bottom: 5px;
+       }
+
+       .slider-label-left,
+       .slider-label-right {
+           font-size: 20px;
+           color: white;
+       }
+
+       input[type="range"] {
+           width: 300px;
+           height: 10px;
+           background: gray;
+           outline: none;
+           -webkit-appearance: none;
+           appearance: none;
+           opacity: 0.7;
+           transition: opacity 0.2s;
+           margin: 0 5px;
+       }
+
+       input[type="range"]::-webkit-slider-thumb {
+           -webkit-appearance: none;
+           appearance: none;
+           width: 20px;
+           height: 20px;
+           background: #ffffff;
+           cursor: pointer;
+           border-radius: 50%;
+       }
+
+       #alphabet-display {
+           font-family: "Moon", sans-serif;
+           font-size: 60px;
+           font-variation-settings: "POSE" var(--POSE);
+           margin-top: 20px;
+       }
+   </style>
 </head>
 
 <body>
-	<!-- Background Video -->
-	<video class="video-background" autoplay muted loop>
-		<source src="Moon.mp4" type="video/mp4">
-		Your browser does not support the video tag.
-	</video>
+   <!-- Background Video -->
+   <video class="video-background" autoplay muted loop>
+       <source src="Moon.mp4" type="video/mp4">
+       Your browser does not support the video tag.
+   </video>
 
-	<div class="container">
-		<p class="moon-position" contenteditable="plaintext-only">MOON</p>
-	</div>
+   <!-- Initial scrollable container with sticky text -->
+   <div class="container">
+       <p class="moon-position" contenteditable="plaintext-only">MOON</p>
+   </div>
 
-	<script>
-		const root = document.documentElement;
+   <!-- Additional black section after scroll -->
+   <div class="black-section">
+       <!-- Static Image Above the Slider -->
+       <img class="static-image" src="Moon Phase.jpg" alt="Moon Phase Image">
+       
+       <!-- Slider to control 'POSE' -->
+       <div id="slider-container">
+           <div id="slider-labels">
+               <span class="slider-label-left">NEW</span>
+               <input id="pose-slider" type="range" min="0" max="1000" value="0">
+               <span class="slider-label-right">FULL</span>
+           </div>
+           <p>Keep Exploring the Darkness</p>
+           
+           <!-- Alphabet display that changes with slider -->
+           <div id="alphabet-display">A B C D E F G H I J K L M N O P Q R S T U V W X Y Z</div>
+       </div>
+   </div>
 
-		window.onscroll = function() {
-			// Total scrollable height of the container
-			const scrollHeight = document.body.scrollHeight - window.innerHeight;
-			// Pixels scrolled down the page
-			const scrollPosition = window.scrollY;
-			
-			// Calculate the percentage scrolled (0 to 1)
-			let percentScrolled = scrollPosition / scrollHeight;
-			// Limit to 0-1 range
-			percentScrolled = Math.min(Math.max(percentScrolled, 0), 1);
+   <!-- Fixed Header Text -->
+   <div id="typeface-header" class="typeface-header">TYPEFACE</div>
 
-			// Map scroll percentage to the range 0–1000 for the font axes
-			const axisValue = Math.round(percentScrolled * 1000);
+   <script>
+       const root = document.documentElement;
+       const typefaceHeader = document.getElementById('typeface-header');
+       const poseSlider = document.getElementById('pose-slider');
 
-			// Update CSS variables
-			root.style.setProperty('--Position', axisValue);
-		};
-	</script>
-	<section id="bigletter" style="--Position: 40;">
-	<div class="largetext">
-		<div class="caps">
-		</div>
-	</div>	
-	</section>
-	<section id="sliders">
-		<div class="range-name" id="serif">New</div>
-		<input data-axes="POSE" clas="range axis-range menu" type="range" min="0" max="0" value="0">
-		<div class="range-name" id="serif">Full</div>
-	</div>
-	</section>
-		
+       // Update 'POSE' using the slider
+       poseSlider.addEventListener('input', (event) => {
+           const poseValue = event.target.value;
+           root.style.setProperty('--POSE', poseValue);
+       });
+
+       // Scroll behavior for the "TYPEFACE" text
+       window.onscroll = function() {
+           const scrollHeight = document.querySelector('.container').scrollHeight - window.innerHeight;
+           const scrollPosition = window.scrollY;
+           let percentScrolled = scrollPosition / scrollHeight;
+           percentScrolled = Math.min(Math.max(percentScrolled, 0), 1);
+           const axisValue = Math.round(percentScrolled * 1000);
+           root.style.setProperty('--Position', axisValue);
+
+           const containerHeight = document.querySelector('.container').offsetHeight;
+           const offset = 500;
+           if (scrollPosition > containerHeight - window.innerHeight + offset) {
+               typefaceHeader.classList.add('show-typeface');
+           } else {
+               typefaceHeader.classList.remove('show-typeface');
+           }
+       };
+   </script>
 </body>
 </html>
-
