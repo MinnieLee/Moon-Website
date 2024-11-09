@@ -37,11 +37,11 @@
 			font-variation-settings: "POSE" var(--type-tester-position), "SHAP" var(--type-tester-shape);
 			font-size: var(--FontSize);
 			border: 2px solid white;
-			padding: 20px;
-			margin: 20px;
+			padding: 30px; /* Increased padding for more space inside the box */
+			margin: 30px auto; /* Centered the element */
 			text-align: center;
-			width: 100%;
-			max-width: 800px;
+			width: 80%;
+			max-width: 1200px;/* Increased max-width for larger screens */
 			box-sizing: border-box;
 		}
 
@@ -78,9 +78,46 @@
 			font-variation-settings: "POSE" var(--Position), "SHAP" var(--Shape);
 		}
 
+		.design-concept {
+			width: 100vw;
+			height: 70vh;
+			background-color: black;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			position: relative;
+			padding-top: 20vh; /* Increased padding at the top for more margin */
+			z-index: 1;
+		}
+
+		.design-text {
+			position: absolute;
+			top: 20%;
+			width: 80%;
+			text-align: center;
+			color: white;
+			font-size: 40px;
+			z-index: 2;
+			pointer-events: none; /* Ensure text doesn't interfere with user interactions */
+		}
+
+		.design-text p {
+			margin-top: 7vw;
+			margin-left: 410px;
+			margin-right: 400px;
+
+		}
+
+		.moon-concept{
+			font-size: 17px;
+		
+		}
+
+
 		.black-section {
 			width: 100vw;
-			height: 100vh;
+			height: 55vh;
 			background-color: black;
 			display: flex;
 			flex-direction: column;
@@ -88,6 +125,14 @@
 			justify-content: center;
 			padding-top: 20px;
 			z-index: 1;
+		}
+
+		.moonphase {
+			display: block;
+			width: 50%;
+			margin-top: 5vh; /* Extra margin above the image */
+			margin-bottom: 30px;
+			height: auto;
 		}
 
 		.static-image {
@@ -189,6 +234,26 @@
 			text-transform: uppercase;
 		}
 
+		.type-tester2 {
+			background-color: black;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			text-transform: uppercase;
+			height: 120vh; /* Increased height for a larger container */
+			padding: 20px;
+		}
+
+		.moondesign-concept {
+			background-color: black;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			text-transform: uppercase;
+		}
+
 		.type-tester-slider-container {
 			display: flex;
 			align-items: center;
@@ -196,8 +261,29 @@
 			justify-content: center;
 		}
 
+		.design-concept-center {
+			margin-top: 1vh; /* Increase this value to adjust the top margin */
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			text-align: center;
+		}
+
+		.design-concept-heading {
+			font-size: 3vw;
+			font-weight: normal;
+			text-transform: uppercase;
+			margin: 0;
+		}
+
 		.type-tester-heading {
-			font-size: 10vw;
+			font-size: 6.5vw;
+			font-weight: normal;
+		}
+
+		.type-tester-heading2 {
+			font-size: 6vw;
 			font-weight: normal;
 		}
 	</style>
@@ -212,7 +298,20 @@
 	<div class="container">
 		<p class="moon-position" contenteditable="plaintext-only">MOON</p>
 	</div>
+	
 
+	<div class="design-concept">
+		<div class="design-text">
+			<div class="design-concept-center">
+				<h1 class="design-concept-heading">DESIGN CONCEPT</h1>
+			</div>
+			<p class="moon-concept">The font 'MOON' draws its inspiration from the changing phases of the moon. Its letterforms feature crescent-shaped counters that progressively transform into circular forms, mirroring the moon’s progression from a crescent to a full moon. Additionally, the overall shape of the font becomes increasingly rounded, echoing the fullness of the moon. This fluid transformation captures the essence of the lunar cycle, seamlessly blending shifts in shape and fullness to create an engaging and dynamic typeface. </p>
+		</div>
+		<img class="moonphase" src="Design.jpg" alt="Design Image">
+	</div>
+	
+	<div class="type-tester">
+	<h2 class="type-tester-heading2">TYPEFACE</h2></div>
 	<div class="black-section">
 		<img class="static-image" src="Moon Phase.jpg" alt="Moon Phase Image">
 
@@ -231,30 +330,28 @@
 
 	<div id="typeface-header" class="typeface-header">MOON</div>
 
-	<div class="type-tester">
-
+	<div class="type-tester2">
 		<h2 class="type-tester-heading">TYPE TESTER</h2>
 		<p class="moon" contenteditable="plaintext-only">Type here!</p>
-
+	
 		<!-- Sliders for controlling the text properties -->
-
 		<div class="type-tester-slider-container">
 			<label for="font-size">Font Size: <span id="current-font-size">50</span>px</label>
 			<input name="font-size" type="range" min="50" max="150" value="50" oninput="setFontSize(this.value)">
 			<span id="current-font-size">150px</span>
 		</div>
-
+	
 		<div class="type-tester-slider-container">
 			<label for="Shape">Stretch: <span id="current-shape">0</span></label>
-			<input name="Shape" type="range" min="0" max="1000" value="1000" oninput="setShape(this.value)">
+			<input name="Shape" type="range" min="0" max="1000" value="0" oninput="setShape(this.value)">
 			<span id="current-shape">1000</span>
 		</div>
+		
 		<div class="type-tester-slider-container">
 			<label for="Position">Roundness: <span id="current-position">0</span></label>
 			<input name="Position" type="range" min="0" max="1000" value="0" oninput="setPosition(this.value)">
 			<span id="current-position">1000</span>
 		</div>
-
 	</div>
 
 	<script>
