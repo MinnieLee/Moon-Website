@@ -407,6 +407,32 @@
           font-variation-settings: "SHAP" 1000, "POSE" 1000;
       }
 
+    /* Updated Button Styling */
+    #max-values-button {
+        background-color: white;
+        color: black;
+        font-family: "Moon", sans-serif;
+        font-size: 30px;
+        padding: 10px 40px; /* Larger padding for a bigger button */
+        border: 2px solid white;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: background-color 0.3s, color 0.3s, transform 0.3s;
+        margin-top: 50px;
+    }
+
+    #max-values-button:hover {
+        background-color: black;
+        color: white;
+        transform: scale(1.1); /* Slightly enlarge on hover */
+    }
+
+    #max-values-button:active {
+        transform: scale(0.95); /* Click effect */
+    }
+</style>
+
+
 
 </style>
    
@@ -503,7 +529,7 @@
     </div>
 
     <!-- Button to control all sliders -->
-    <button id="max-values-button">Illuminate!</button>
+    <button id="max-values-button">ILLUMINATE!</button>
 </div>
 
 
