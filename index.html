@@ -5,669 +5,766 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Minnie_Moon Observation</title>
 
+
 <style>
-    :root {
-        --Position: 0;
-        --POSE: 0;
-        --Shape: 0;
-        --SHAP: 0;
-        --FontSize: 50px;
-        --type-tester-shape: 0;
-        --type-tester-position: 0;
-    }
+   :root {
+       --Position: 0;
+       --POSE: 0;
+       --Shape: 0;
+       --SHAP: 0;
+       --FontSize: 50px;
+       --type-tester-shape: 0;
+       --type-tester-position: 0;
+   }
 
-    @font-face {
-        font-family: "Moon";
-        src: url("./Font/Moon.ttf");
-    }
 
-    body {
-        margin: 0;
-        background-color: black; /* Black background */
-        color: white;
-        font-family: "Moon", sans-serif;
-        font-size: 40px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        min-height: 100vh;
-        overflow-x: hidden;
-    }
+   @font-face {
+       font-family: "Moon";
+       src: url("./Font/Moon.ttf");
+   }
 
-    .moon {
-        font-variation-settings: "POSE" var(--type-tester-position), "SHAP" var(--type-tester-shape);
-        font-size: var(--FontSize);
-        border: 2px solid white;
-        padding: 30px; /* Increased padding for more space inside the box */
-        margin: 30px auto; /* Centered the element */
-        text-align: center;
-        width: 80%;
-        max-width: 1200px;/* Increased max-width for larger screens */
-        box-sizing: border-box;
-    }
 
-    .video-background {
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 70%;
-        height: auto;
-        object-fit: cover;
-        z-index: -1;
-    }
+   body {
+       margin: 0;
+       background-color: black; /* Black background */
+       color: white;
+       font-family: "Moon", sans-serif;
+       font-size: 40px;
+       display: flex;
+       flex-direction: column;
+       align-items: center;
+       justify-content: center;
+       min-height: 100vh;
+       overflow-x: hidden;
+   }
 
-    .container {
-        width: 100vw;
-        height: 200vh;
-        position: relative;
-        z-index: 1;
-    }
 
-    .moon-position {
-        width: 100vw;
-        height: 100vh;
-        position: sticky;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        top: 0;
-        font-size: 110px;
-        color: white;
-        margin: 0;
-        z-index: 2;
-        font-variation-settings: "POSE" var(--Position), "SHAP" var(--Shape);
-    }
+   .moon {
+       font-variation-settings: "POSE" var(--type-tester-position), "SHAP" var(--type-tester-shape);
+       font-size: var(--FontSize);
+       border: 2px solid white;
+       padding: 30px; /* Increased padding for more space inside the box */
+       margin: 30px auto; /* Centered the element */
+       text-align: center;
+       width: 80%;
+       max-width: 1200px;/* Increased max-width for larger screens */
+       box-sizing: border-box;
+   }
 
-    .design-concept {
-    position: relative; /* Positioning the container relative */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: auto;
-    min-height: 60vh;
+
+   .video-background {
+       position: fixed;
+       top: 50%;
+       left: 50%;
+       transform: translate(-50%, -50%);
+       width: 70%;
+       height: auto;
+       object-fit: cover;
+       z-index: -1;
+   }
+
+
+   .container {
+       width: 100vw;
+       height: 200vh;
+       position: relative;
+       z-index: 1;
+   }
+
+
+   .moon-position {
+       width: 100vw;
+       height: 100vh;
+       position: sticky;
+       display: flex;
+       align-items: center;
+       justify-content: center;
+       top: 0;
+       font-size: 110px;
+       color: white;
+       margin: 0;
+       z-index: 2;
+       font-variation-settings: "POSE" var(--Position), "SHAP" var(--Shape);
+   }
+
+
+   .design-concept {
+       width: 100vw;
+       height: 100vh;
+       background-color: black;
+       display: flex;
+       align-items: center;
+       justify-content: center;
+       position: relative;
+       padding-top: 6vh;
+       z-index: 1;
+   }
+
+
+   .design-text {
+       position: absolute;
+       top: 50%;
+       left: 50%;
+       transform: translate(-50%, -50%);
+       text-align: center;
+       width: 80%;
+       z-index: 2;
+   }
+
+
+   .design-text p {
+       margin-left: 410px;
+       margin-right: 400px;
+   }
+
+
+   .moon-concept {
+       font-size: 18px;
+       margin-top: 0;
+   }
+
+
+   .black-section {
+       width: 100vw;
+       height: 55vh;
+       background-color: black;
+       display: flex;
+       flex-direction: column;
+       align-items: center;
+       justify-content: center;
+       padding-top: 20px;
+       z-index: 1;
+       margin-top
+   }
+
+
+   .moonphase {
+       display: block;
+       width: 50%;
+       height: auto;
+       margin: 0 auto;
+       position: relative;
+   }
+
+
+   .static-image {
+       display: block;
+       width: 50%;
+       margin-top: 10px;
+       margin-bottom: 30px;
+   }
+
+
+   .typeface-header {
+       position: fixed;
+       top: 10px;
+       left: 50%;
+       transform: translateX(-50%);
+       font-size: 70px;
+       opacity: 0;
+       transition: opacity 0.5s ease, font-size 0.5s ease;
+       z-index: 3;
+   }
+
+
+   .h1 {
+       position: fixed;
+       justify-content: center;
+       top: 10px;
+       left: 50%;
+       font-size: 40px;
+   }
+
+
+   .show-typeface {
+       opacity: 1;
+   }
+
+
+   #slider-container {
+       display: flex;
+       flex-direction: column;
+       align-items: center;
+       justify-content: center;
+       /* margin-top: -130px; */
+   }
+
+
+   .slider-desc {
+       text-align: center;
+       text-transform: uppercase;
+   }
+
+
+   #slider-labels {
+       display: flex;
+       align-items: center;
+       justify-content: space-between;
+       width: 350px;
+       height: 5px;
+       margin-bottom: 0px;
+   }
+
+
+   .slider-label-left,
+   .slider-label-right {
+       font-size: 40px;
+       color: white;
+       white-space: nowrap;
+   }
+
+
+   input[type="range"] {
+       width: 300px;
+       height: 10px;
+       background: gray;
+       outline: none;
+       -webkit-appearance: none;
+       appearance: none;
+       opacity: 0.7;
+       transition: opacity 0.2s;
+       margin: 0 5px;
+   }
+
+
+   input[type="range"]::-webkit-slider-thumb {
+       -webkit-appearance: none;
+       appearance: none;
+       width: 20px;
+       height: 20px;
+       background: #ffffff;
+       cursor: pointer;
+       border-radius: 50%;
+   }
+
+
+   .alphabet-display {
+       font-family: "Moon", sans-serif;
+       font-size: 7vw;
+       font-variation-settings: "POSE" var(--POSE), "SHAP" 0;
+       margin-top: 10px;
+       text-align: center;
+   }
+
+
+   .type-tester {
+   background-color: black; /* Black background */
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   text-transform: uppercase;
+   max-height: 105vh; /* Full screen height */
+   width: 100vw; /* Full screen width */
+   position: relative;
 }
 
-.design-text {
-    position: absolute; /* Positioning text absolutely over the image */
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%); /* Centering text */
-    text-align: center;
-    color: white;
-    width: 90%;
-    max-width: 80%;
-}
 
-    .design-text p {
-        margin-left: 410px;
-        margin-right: 400px;
-    }
-
-    .moon-concept {
-    font-size: 1.2vw;
-    line-height: 1.4;
-    margin: 0;
-    padding-top: 10px;
-}
-
-    .black-section {
-        width: 100vw;
-        height: 55vh;
-        background-color: black;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        padding-top: 20px;
-        z-index: 1;
-        margin-top
-    }
-
-    .moonphase {
-    width: 50%;
-    height: auto;
-    object-fit: cover;
-}
-
-    .static-image {
-        display: block;
-        width: 50%;
-        margin-top: 10px;
-        margin-bottom: 30px;
-    }
-
-    .typeface-header {
-        position: fixed;
-        top: 10px;
-        left: 50%;
-        transform: translateX(-50%);
-        font-size: 70px;
-        opacity: 0;
-        transition: opacity 0.5s ease, font-size 0.5s ease;
-        z-index: 3;
-    }
-
-    .h1 {
-        position: fixed;
-        justify-content: center;
-        top: 10px;
-        left: 50%;
-        font-size: 40px;
-    }
-
-    .show-typeface {
-        opacity: 1;
-    }
-
-    #slider-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        /* margin-top: -130px; */
-    }
-
-    .slider-desc {
-        text-align: center;
-        text-transform: uppercase;
-    }
-
-    #slider-labels {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        width: 350px;
-        height: 5px;
-        margin-bottom: 0px;
-    }
-
-    .slider-label-left,
-    .slider-label-right {
-        font-size: 40px;
-        color: white;
-        white-space: nowrap;
-    }
-
-    input[type="range"] {
-        width: 300px;
-        height: 10px;
-        background: gray;
-        outline: none;
-        -webkit-appearance: none;
-        appearance: none;
-        opacity: 0.7;
-        transition: opacity 0.2s;
-        margin: 0 5px;
-    }
-
-    input[type="range"]::-webkit-slider-thumb {
-        -webkit-appearance: none;
-        appearance: none;
-        width: 20px;
-        height: 20px;
-        background: #ffffff;
-        cursor: pointer;
-        border-radius: 50%;
-    }
-
-    .alphabet-display {
-        font-family: "Moon", sans-serif;
-        font-size: 7vw;
-        font-variation-settings: "POSE" var(--POSE), "SHAP" 0;
-        margin-top: 10px;
-        text-align: center;
-    }
-
-    .type-tester {
-    background-color: black; /* Black background */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-transform: uppercase;
-    max-height: 105vh; /* Full screen height */
-    width: 100vw; /* Full screen width */
-    position: relative;
-}
-
-    .type-tester2 {
-        background-color: black;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        text-transform: uppercase;
-        height: 120vh;
-        width: 100vw;
-        position: relative; /* Increased height for a larger container */
-    }
-
-    .type-tester3 {
-        background-color: black;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        text-transform: uppercase;
-        height: 110vh; /* Increased height for a larger container */
-        width: 100vw;
-    }
-
-    .moondesign-concept {
-        background-color: black;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        text-transform: uppercase;
-    }
-
-    .type-tester-slider-container {
-        display: flex;
-        align-items: center;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
+   .type-tester2 {
+       background-color: black;
+       display: flex;
+       flex-direction: column;
+       align-items: center;
+       justify-content: center;
+       text-transform: uppercase;
+       height: 120vh;
+       width: 100vw;
+       position: relative; /* Increased height for a larger container */
+   }
 
 
-    .design-concept-center {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-    }
+   .type-tester3 {
+       background-color: black;
+       display: flex;
+       flex-direction: column;
+       align-items: center;
+       justify-content: center;
+       text-transform: uppercase;
+       height: 120vh; /* Increased height for a larger container */
+       width: 100vw;
+   }
 
 
-    .design-concept-heading {
-    font-size: 4vw;
-    font-weight: normal;
-    text-transform: uppercase;
-    margin: 0; /* Remove margin to bring elements closer */
-    padding-bottom: 10px;
-}
-
-    .type-tester-heading {
-        font-size: 6.5vw;
-        font-weight: normal;
-    }
+   .moondesign-concept {
+       background-color: black;
+       display: flex;
+       flex-direction: column;
+       align-items: center;
+       justify-content: center;
+       text-transform: uppercase;
+   }
 
 
-    .type-tester-heading2 {
-        font-size: 6vw;
-        font-weight: normal;
-    }
+   .type-tester-slider-container {
+       display: flex;
+       align-items: center;
+       flex-wrap: wrap;
+       justify-content: center;
+   }
 
-    .moon-container {
-      width: 28vw; /* Width relative to the viewport width */
-      height: 28vw; /* Height relative to the viewport width */
-      border-radius: 50%;
-      background-color: #e7e9ed;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      overflow: hidden;
-      text-align: center;
-      margin: 5vh auto; /* Center the container with margin */
-      transition: transform 0.3s ease; /* Smooth resizing */
-  }
+
+
+
+   .design-concept-center {
+       display: flex;
+       flex-direction: column;
+       align-items: center;
+       justify-content: center;
+       text-align: center;
+   }
+
+
+
+
+   .design-concept-heading {
+     font-size: 3vw;
+     font-weight: normal;
+     text-transform: uppercase;
+     margin-bottom: 10px;
+   }
+   .type-tester-heading {
+       font-size: 6.5vw;
+       font-weight: normal;
+   }
+
+
+
+
+   .type-tester-heading2 {
+       font-size: 6vw;
+       font-weight: normal;
+   }
+
+
+   .moon-container {
+     width: 28vw; /* Width relative to the viewport width */
+     height: 28vw; /* Height relative to the viewport width */
+     border-radius: 50%;
+     background-color: #e7e9ed;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     overflow: hidden;
+     text-align: center;
+     margin: 5vh auto; /* Center the container with margin */
+     transition: transform 0.3s ease; /* Smooth resizing */
+ }
+
 
 .moon-container:hover {
-  transform: scale(1.2); /* Slight zoom on hover for effect */
+ transform: scale(1.2); /* Slight zoom on hover for effect */
 }
 .moonn {
-  font-family: "Moon", sans-serif;
-  color: black;
-  font-variation-settings: "SHAP" 0;
-  font-size: 5.5vw; /* Font size relative to viewport width */
-  line-height: 0.8em;
-  word-break: break-all;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+ font-family: "Moon", sans-serif;
+ color: black;
+ font-variation-settings: "SHAP" 0;
+ font-size: 5.5vw; /* Font size relative to viewport width */
+ line-height: 0.8em;
+ word-break: break-all;
+ display: flex;
+ flex-wrap: wrap;
+ justify-content: center;
 }
 
-    .moonn span {
-        transition: font-variation-settings 0.5s, opacity 0.5s;
-        display: inline-block;
-    }
-    .hidden {
-        opacity: 0.25;
-        font-variation-settings: "SHAP" 1000, "POSE" 1000;
-    }
 
-  /* Updated Button Styling */
-  #max-values-button {
-      background-color: white;
-      color: black;
-      font-family: "Moon", sans-serif;
-      font-size: 30px;
-      padding: 10px 40px; /* Larger padding for a bigger button */
-      border: 2px solid white;
-      border-radius: 10px;
-      cursor: pointer;
-      transition: background-color 0.3s, color 0.3s, transform 0.3s;
-      margin-top: 50px;
+.moonn span {
+      transition: font-variation-settings 0.5s, opacity 0.5s;
+      display: inline-block;
+  }
+  .hidden {
+      opacity: 0.25;
+      font-variation-settings: "SHAP" 1000, "POSE" 1000;
   }
 
-  #max-values-button:hover {
-      background-color: black;
-      color: white;
-      transform: scale(1.1); /* Slightly enlarge on hover */
-  }
 
-  #max-values-button:active {
-      transform: scale(0.95); /* Click effect */
+
+
+/* Updated Button Styling */
+#max-values-button {
+    background-color: white;
+    color: black;
+    font-family: "Moon", sans-serif;
+    font-size: 30px;
+    padding: 10px 40px; /* Larger padding for a bigger button */
+    border: 2px solid white;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, transform 0.3s;
+    margin-top: 50px;
+}
+
+
+
+
+#max-values-button:hover {
+    background-color: black;
+    color: white;
+    transform: scale(1.1); /* Slightly enlarge on hover */
+}
+
+
+
+
+#max-values-button:active {
+    transform: scale(0.95); /* Click effect */
+}
+
+
+
+
+.download-icon {
+  position: fixed;
+  top: 30px;
+  right: 30px;
+  max-width: 6.5vw;  /* Adjust size as needed */
+  height: auto;
+  cursor: pointer;
+  z-index: 10;
+  transition: transform 0.3s ease;
+}
+
+
+
+
+.download-icon:hover {
+  transform: scale(1.5); /* Slight zoom effect on hover */
+}
+
+
+
+
+.download-icon {
+  cursor: pointer;
+}
+
+
+
+
+@media (max-width: 768px) {
+  .download-icon {
+      max-width: 8vw; /* Adjust size for tablets */
   }
+}
+
+
+
+
+@media (max-width: 480px) {
+  .download-icon {
+      max-width: 8vw; /* Adjust size for mobile devices */
+  }
+}
+
 </style>
 </head>
 
 
+
+
 <body>
 
+
 <video class="video-background" autoplay muted loop>
-    <source src="Moon.mp4" type="video/mp4">
+   <source src="Moon.mp4" type="video/mp4">
 </video>
 
+
+<img src="Download.png" alt="Download" id="download-image" class="download-icon">
 <div class="container">
-    <p class="moon-position" contenteditable="plaintext-only">MOON</p>
+  <p class="moon-position" contenteditable="plaintext-only">MOON</p>
 </div>
+
 
 <div class="design-concept">
-    <img class="moonphase" src="Design.jpg" alt="Design Image">
-    <div class="design-text">
-        <div class="design-concept-center">
-            <h1 class="design-concept-heading">DESIGN CONCEPT</h1>
-            <p class="moon-concept">
-                The font 'MOON' draws its inspiration from the changing phases of the moon. Its letterforms feature crescent-shaped counters that progressively transform into circular forms, mirroring the moon’s progression from a crescent to a full moon.
-            </p>
-        </div>
-    </div>
+   <img class="moonphase" src="Design.jpg" alt="Design Image">
+   <div class="design-text">
+       <div class="design-concept-center">
+           <h1 class="design-concept-heading">DESIGN CONCEPT</h1>
+           <p class="moon-concept">
+               The font 'MOON' draws its inspiration from the changing phases of the moon. Its letterforms feature crescent-shaped counters that progressively transform into circular forms, mirroring the moon’s progression from a crescent to a full moon.
+           </p>
+       </div>
+   </div>
 </div>
- <div class="type-tester">
+<div class="type-tester">
 <h2 class="type-tester-heading2">TYPEFACE</h2></div>
 <div class="black-section">
-    <img class="static-image" src="Moon Phase.jpg" alt="Moon Phase Image">
+   <img class="static-image" src="Moon Phase.jpg" alt="Moon Phase Image">
 
-    <div id="slider-container">
-        <div id="slider-labels">
-            <span class="slider-label-left">NEW</span>
-            <input id="pose-slider" type="range" min="0" max="1000" value="0">
-            <span class="slider-label-right">FULL</span>
-        </div>
-        <p class="slider-desc">Keep Exploring the Darkness</p>
 
-        <div class="alphabet-display">A B C D E F G H I J K L M N </div>
-        <div class="alphabet-display">O P Q R S T U V W X Y Z</div>
-    </div>
+   <div id="slider-container">
+       <div id="slider-labels">
+           <span class="slider-label-left">NEW</span>
+           <input id="pose-slider" type="range" min="0" max="1000" value="0">
+           <span class="slider-label-right">FULL</span>
+       </div>
+       <p class="slider-desc">Keep Exploring the Darkness</p>
+
+
+       <div class="alphabet-display">A B C D E F G H I J K L M N </div>
+       <div class="alphabet-display">O P Q R S T U V W X Y Z</div>
+   </div>
 </div>
+
 
 <div id="typeface-header" class="typeface-header">MOON</div>
 
-<div class="type-tester2">
-  <h2 class="type-tester-heading">TYPE TESTER</h2>
-  <p class="moon" contenteditable="plaintext-only">Type here!</p>
-  
-  <!-- Sliders for controlling the text properties -->
-  <div class="type-tester-slider-container">
-      <label for="font-size">Font Size: <span id="current-font-size">50</span>px</label>
-      <input id="font-size-slider" type="range" name="font-size" min="50" max="150" value="50" oninput="setFontSize(this.value)">
-      <span>150px</span>
-  </div>
-  
-  <div class="type-tester-slider-container">
-      <label for="Shape">Stretch: <span id="current-shape">0</span></label>
-      <input id="shape-slider" type="range" name="Shape" min="0" max="1000" value="0" oninput="setShape(this.value)">
-      <span>1000</span>
-  </div>
-  
-  <div class="type-tester-slider-container">
-      <label for="Position">Roundness: <span id="current-position">0</span></label>
-      <input id="position-slider" type="range" name="Position" min="0" max="1000" value="0" oninput="setPosition(this.value)">
-      <span>1000</span>
-  </div>
 
-  <!-- Button to control all sliders -->
-  <button id="max-values-button">ILLUMINATE!</button>
+<div class="type-tester2">
+ <h2 class="type-tester-heading">TYPE TESTER</h2>
+ <p class="moon" contenteditable="plaintext-only">Type here!</p>
+  <!-- Sliders for controlling the text properties -->
+ <div class="type-tester-slider-container">
+     <label for="font-size">Font Size: <span id="current-font-size">50</span>px</label>
+     <input id="font-size-slider" type="range" name="font-size" min="50" max="150" value="50" oninput="setFontSize(this.value)">
+     <span>150px</span>
+ </div>
+  <div class="type-tester-slider-container">
+     <label for="Shape">Stretch: <span id="current-shape">0</span></label>
+     <input id="shape-slider" type="range" name="Shape" min="0" max="1000" value="0" oninput="setShape(this.value)">
+     <span>1000</span>
+ </div>
+  <div class="type-tester-slider-container">
+     <label for="Position">Roundness: <span id="current-position">0</span></label>
+     <input id="position-slider" type="range" name="Position" min="0" max="1000" value="0" oninput="setPosition(this.value)">
+     <span>1000</span>
+ </div>
+
+
+ <!-- Button to control all sliders -->
+ <button id="max-values-button">ILLUMINATE!</button>
 </div>
 
 
+
+
 <script>
-    const root = document.documentElement;
-    const moonElement = document.querySelector('.moon');
+   const root = document.documentElement;
+   const moonElement = document.querySelector('.moon');
 
-    // Function to set Stretch value
-    function setShape(value) {
-        root.style.setProperty('--type-tester-shape', value);
-        document.getElementById('current-shape').textContent = value;
-    }
 
-    // Function to set Font Size
-    function setFontSize(value) {
-        root.style.setProperty('--FontSize', value + 'px');
-        document.getElementById('current-font-size').textContent = value;
-    }
+   // Function to set Stretch value
+   function setShape(value) {
+       root.style.setProperty('--type-tester-shape', value);
+       document.getElementById('current-shape').textContent = value;
+   }
 
-    // Function to set Roundness (POSE value)
-    function setPosition(value) {
-        root.style.setProperty('--type-tester-position', value);
-        document.getElementById('current-position').textContent = value;
-    }
+
+   // Function to set Font Size
+   function setFontSize(value) {
+       root.style.setProperty('--FontSize', value + 'px');
+       document.getElementById('current-font-size').textContent = value;
+   }
+
+
+   // Function to set Roundness (POSE value)
+   function setPosition(value) {
+       root.style.setProperty('--type-tester-position', value);
+       document.getElementById('current-position').textContent = value;
+   }
 </script>
 
+
 <script>
-    const typefaceHeader = document.getElementById('typeface-header');
-    const poseSlider = document.getElementById('pose-slider');
-
-    // Update 'POSE' using the slider
-    poseSlider.addEventListener('input', (event) => {
-        const poseValue = event.target.value;
-        root.style.setProperty('--POSE', poseValue);
-    });
+   const typefaceHeader = document.getElementById('typeface-header');
+   const poseSlider = document.getElementById('pose-slider');
 
 
-    // Scroll behavior for the "TYPEFACE" text
-    window.onscroll = function () {
-        const scrollHeight = document.querySelector('.container').scrollHeight - window.innerHeight;
-        const scrollPosition = window.scrollY;
-        let percentScrolled = scrollPosition / scrollHeight;
-        percentScrolled = Math.min(Math.max(percentScrolled, 0), 1);
-        const axisValue = Math.round(percentScrolled * 1000);
-        root.style.setProperty('--Position', axisValue);
+   // Update 'POSE' using the slider
+   poseSlider.addEventListener('input', (event) => {
+       const poseValue = event.target.value;
+       root.style.setProperty('--POSE', poseValue);
+   });
 
 
 
 
-        const containerHeight = document.querySelector('.container').offsetHeight;
-        const offset = 500;
-        if (scrollPosition > containerHeight - window.innerHeight + offset) {
-            typefaceHeader.classList.add('show-typeface');
-        } else {
-            typefaceHeader.classList.remove('show-typeface');
-        }
-    };
+   // Scroll behavior for the "TYPEFACE" text
+   window.onscroll = function () {
+       const scrollHeight = document.querySelector('.container').scrollHeight - window.innerHeight;
+       const scrollPosition = window.scrollY;
+       let percentScrolled = scrollPosition / scrollHeight;
+       percentScrolled = Math.min(Math.max(percentScrolled, 0), 1);
+       const axisValue = Math.round(percentScrolled * 1000);
+       root.style.setProperty('--Position', axisValue);
+
+
+
+
+
+
+
+
+       const containerHeight = document.querySelector('.container').offsetHeight;
+       const offset = 500;
+       if (scrollPosition > containerHeight - window.innerHeight + offset) {
+           typefaceHeader.classList.add('show-typeface');
+       } else {
+           typefaceHeader.classList.remove('show-typeface');
+       }
+   };
 </script>
 <script>
-  document.addEventListener('DOMContentLoaded', function () {
-      const root = document.documentElement;
-      const moonElement = document.querySelector('.moon');
-  
+ document.addEventListener('DOMContentLoaded', function () {
+     const root = document.documentElement;
+     const moonElement = document.querySelector('.moon');
       // Function to set the Font Size
-      function setFontSize(value) {
-          root.style.setProperty('--FontSize', value + 'px');
-          document.getElementById('current-font-size').textContent = value;
-      }
-  
+     function setFontSize(value) {
+         root.style.setProperty('--FontSize', value + 'px');
+         document.getElementById('current-font-size').textContent = value;
+     }
       // Function to set the Shape (Stretch)
-      function setShape(value) {
-          root.style.setProperty('--type-tester-shape', value);
-          document.getElementById('current-shape').textContent = value;
-      }
-  
+     function setShape(value) {
+         root.style.setProperty('--type-tester-shape', value);
+         document.getElementById('current-shape').textContent = value;
+     }
       // Function to set the Position (Roundness)
-      function setPosition(value) {
-          root.style.setProperty('--type-tester-position', value);
-          document.getElementById('current-position').textContent = value;
-      }
-  
+     function setPosition(value) {
+         root.style.setProperty('--type-tester-position', value);
+         document.getElementById('current-position').textContent = value;
+     }
       // Function to set text color
-      function setTextColor(color) {
-          moonElement.style.color = color;
-      }
-  
+     function setTextColor(color) {
+         moonElement.style.color = color;
+     }
       // Get the sliders and button elements
-      const fontSizeSlider = document.getElementById('font-size-slider');
-      const shapeSlider = document.getElementById('shape-slider');
-      const positionSlider = document.getElementById('position-slider');
-      const maxButton = document.getElementById('max-values-button');
-  
+     const fontSizeSlider = document.getElementById('font-size-slider');
+     const shapeSlider = document.getElementById('shape-slider');
+     const positionSlider = document.getElementById('position-slider');
+     const maxButton = document.getElementById('max-values-button');
       // Function to animate sliders quickly
-      function animateSliders() {
-          let fontSize = parseInt(fontSizeSlider.value);
-          let shape = parseInt(shapeSlider.value);
-          let position = parseInt(positionSlider.value);
-  
+     function animateSliders() {
+         let fontSize = parseInt(fontSizeSlider.value);
+         let shape = parseInt(shapeSlider.value);
+         let position = parseInt(positionSlider.value);
           const sliderInterval = setInterval(() => {
-              // Increment values for sliders
-              if (fontSize < 150) fontSize++;
-              if (shape < 1000) shape += 10;
-              if (position < 1000) position += 10;
-  
+             // Increment values for sliders
+             if (fontSize < 150) fontSize++;
+             if (shape < 1000) shape += 10;
+             if (position < 1000) position += 10;
               // Update sliders and properties
-              fontSizeSlider.value = fontSize;
-              setFontSize(fontSize);
-  
+             fontSizeSlider.value = fontSize;
+             setFontSize(fontSize);
               shapeSlider.value = shape;
-              setShape(shape);
-  
+             setShape(shape);
               positionSlider.value = position;
-              setPosition(position);
-  
+             setPosition(position);
               // Stop when all sliders reach their max values
-              if (fontSize >= 150 && shape >= 1000 && position >= 1000) {
-                  clearInterval(sliderInterval);
-              }
-          }, 5); // Speed of slider change (lower is faster)
-      }
-  
+             if (fontSize >= 150 && shape >= 1000 && position >= 1000) {
+                 clearInterval(sliderInterval);
+             }
+         }, 5); // Speed of slider change (lower is faster)
+     }
       // Font color change
-      function animateColor() {
-          let colorStep = 0;
-  
+     function animateColor() {
+         let colorStep = 0;
           const colorInterval = setInterval(() => {
-              if (colorStep <= 100) {
-                  const colorValue = Math.round((colorStep / 100) * 255);
-                  const color = `rgb(${colorValue}, ${colorValue}, ${colorValue})`;
-                  setTextColor(color);
-                  colorStep++;
-              } else {
-                  clearInterval(colorInterval);
-              }
-          }, 15); // Speed of color change (higher is slower)
-      }
-  
+             if (colorStep <= 100) {
+                 const colorValue = Math.round((colorStep / 100) * 255);
+                 const color = rgb(${colorValue}, ${colorValue}, ${colorValue});
+                 setTextColor(color);
+                 colorStep++;
+             } else {
+                 clearInterval(colorInterval);
+             }
+         }, 15); // Speed of color change (higher is slower)
+     }
       if (maxButton) {
-          maxButton.addEventListener('click', function () {
-              animateSliders();
-              animateColor();
-          });
-      }
-  });
-  </script>
-  
-  
+         maxButton.addEventListener('click', function () {
+             animateSliders();
+             animateColor();
+         });
+     }
+ });
+ </script>
+ 
+
 
 </script>
+
 
 <div class="type-tester3">
 <h2 class="type-tester-heading2">MAKE YOUR MOON!</h2>
 
-
-
-
 <div class="moon-container">
-<p class= "moonn">
-    <span onmouseenter="toggleMyVariableClass(this)">M</span>
-    <span onmouseenter="toggleMyVariableClass(this)">A</span>
-    <span onmouseenter="toggleMyVariableClass(this)">K</span>
-    <span onmouseenter="toggleMyVariableClass(this)">E</span>
-    <span onmouseenter="toggleMyVariableClass(this)">Y</span>
-    <span onmouseenter="toggleMyVariableClass(this)">O</span>
-    <span onmouseenter="toggleMyVariableClass(this)">U</span>
-    <span onmouseenter="toggleMyVariableClass(this)">R</span>
-    <span onmouseenter="toggleMyVariableClass(this)">O</span>
-    <span onmouseenter="toggleMyVariableClass(this)">W</span>
-    <span onmouseenter="toggleMyVariableClass(this)">N</span>
-    <span onmouseenter="toggleMyVariableClass(this)">M</span>
-    <span onmouseenter="toggleMyVariableClass(this)">O</span>
-    <span onmouseenter="toggleMyVariableClass(this)">O</span>
-    <span onmouseenter="toggleMyVariableClass(this)">N</span>
-    <span onmouseenter="toggleMyVariableClass(this)">M</span>
-    <span onmouseenter="toggleMyVariableClass(this)">A</span>
-    <span onmouseenter="toggleMyVariableClass(this)">K</span>
-    <span onmouseenter="toggleMyVariableClass(this)">E</span>
-    <span onmouseenter="toggleMyVariableClass(this)">Y</span>
-    <span onmouseenter="toggleMyVariableClass(this)">O</span>
-    <span onmouseenter="toggleMyVariableClass(this)">U</span>
-    <span onmouseenter="toggleMyVariableClass(this)">R</span>
-    <span onmouseenter="toggleMyVariableClass(this)">O</span>
-    <span onmouseenter="toggleMyVariableClass(this)">W</span>
-    <span onmouseenter="toggleMyVariableClass(this)">N</span>
-    <span onmouseenter="toggleMyVariableClass(this)">M</span>
-    <span onmouseenter="toggleMyVariableClass(this)">O</span>
-    <span onmouseenter="toggleMyVariableClass(this)">O</span>
-    <span onmouseenter="toggleMyVariableClass(this)">N</span>
-    <span onmouseenter="toggleMyVariableClass(this)">M</span>
-    <span onmouseenter="toggleMyVariableClass(this)">A</span>
-    <span onmouseenter="toggleMyVariableClass(this)">K</span>
-    <span onmouseenter="toggleMyVariableClass(this)">E</span>
-    <span onmouseenter="toggleMyVariableClass(this)">Y</span>
-    <span onmouseenter="toggleMyVariableClass(this)">O</span>
-    <span onmouseenter="toggleMyVariableClass(this)">U</span>
-    <span onmouseenter="toggleMyVariableClass(this)">R</span>
-    <span onmouseenter="toggleMyVariableClass(this)">O</span>
-    <span onmouseenter="toggleMyVariableClass(this)">W</span>
-    <span onmouseenter="toggleMyVariableClass(this)">N</span>
-    <span onmouseenter="toggleMyVariableClass(this)">M</span>
-    <span onmouseenter="toggleMyVariableClass(this)">O</span>
-    <span onmouseenter="toggleMyVariableClass(this)">O</span>
-    <span onmouseenter="toggleMyVariableClass(this)">N</span>
-    <span onmouseenter="toggleMyVariableClass(this)">M</span>
-    <span onmouseenter="toggleMyVariableClass(this)">O</span>
-    <span onmouseenter="toggleMyVariableClass(this)">O</span>
-    <span onmouseenter="toggleMyVariableClass(this)">N</span>
-    <span onmouseenter="toggleMyVariableClass(this)">M</span>
-    <span onmouseenter="toggleMyVariableClass(this)">O</span>
-    <span onmouseenter="toggleMyVariableClass(this)">O</span>
-    <span onmouseenter="toggleMyVariableClass(this)">N</span>
-    <span onmouseenter="toggleMyVariableClass(this)">M</span>
-    <span onmouseenter="toggleMyVariableClass(this)">O</span>
-    <span onmouseenter="toggleMyVariableClass(this)">O</span>
-    <span onmouseenter="toggleMyVariableClass(this)">N</span>
- </p>
-</div>
-</div>
-
-<script>
-function toggleMyVariableClass(myElement) {
-    myElement.classList.toggle('hidden');
-}
-</script>
+    <p class= "moonn">
+       <span onmouseenter="toggleMyVariableClass(this)">M</span>
+       <span onmouseenter="toggleMyVariableClass(this)">A</span>
+       <span onmouseenter="toggleMyVariableClass(this)">K</span>
+       <span onmouseenter="toggleMyVariableClass(this)">E</span>
+       <span onmouseenter="toggleMyVariableClass(this)">Y</span>
+       <span onmouseenter="toggleMyVariableClass(this)">O</span>
+       <span onmouseenter="toggleMyVariableClass(this)">U</span>
+       <span onmouseenter="toggleMyVariableClass(this)">R</span>
+       <span onmouseenter="toggleMyVariableClass(this)">O</span>
+       <span onmouseenter="toggleMyVariableClass(this)">W</span>
+       <span onmouseenter="toggleMyVariableClass(this)">N</span>
+       <span onmouseenter="toggleMyVariableClass(this)">M</span>
+       <span onmouseenter="toggleMyVariableClass(this)">O</span>
+       <span onmouseenter="toggleMyVariableClass(this)">O</span>
+       <span onmouseenter="toggleMyVariableClass(this)">N</span>
+       <span onmouseenter="toggleMyVariableClass(this)">M</span>
+       <span onmouseenter="toggleMyVariableClass(this)">A</span>
+       <span onmouseenter="toggleMyVariableClass(this)">K</span>
+       <span onmouseenter="toggleMyVariableClass(this)">E</span>
+       <span onmouseenter="toggleMyVariableClass(this)">Y</span>
+       <span onmouseenter="toggleMyVariableClass(this)">O</span>
+       <span onmouseenter="toggleMyVariableClass(this)">U</span>
+       <span onmouseenter="toggleMyVariableClass(this)">R</span>
+       <span onmouseenter="toggleMyVariableClass(this)">O</span>
+       <span onmouseenter="toggleMyVariableClass(this)">W</span>
+       <span onmouseenter="toggleMyVariableClass(this)">N</span>
+       <span onmouseenter="toggleMyVariableClass(this)">M</span>
+       <span onmouseenter="toggleMyVariableClass(this)">O</span>
+       <span onmouseenter="toggleMyVariableClass(this)">O</span>
+       <span onmouseenter="toggleMyVariableClass(this)">N</span>
+       <span onmouseenter="toggleMyVariableClass(this)">M</span>
+       <span onmouseenter="toggleMyVariableClass(this)">A</span>
+       <span onmouseenter="toggleMyVariableClass(this)">K</span>
+       <span onmouseenter="toggleMyVariableClass(this)">E</span>
+       <span onmouseenter="toggleMyVariableClass(this)">Y</span>
+       <span onmouseenter="toggleMyVariableClass(this)">O</span>
+       <span onmouseenter="toggleMyVariableClass(this)">U</span>
+       <span onmouseenter="toggleMyVariableClass(this)">R</span>
+       <span onmouseenter="toggleMyVariableClass(this)">O</span>
+       <span onmouseenter="toggleMyVariableClass(this)">W</span>
+       <span onmouseenter="toggleMyVariableClass(this)">N</span>
+       <span onmouseenter="toggleMyVariableClass(this)">M</span>
+       <span onmouseenter="toggleMyVariableClass(this)">O</span>
+       <span onmouseenter="toggleMyVariableClass(this)">O</span>
+       <span onmouseenter="toggleMyVariableClass(this)">N</span>
+       <span onmouseenter="toggleMyVariableClass(this)">M</span>
+       <span onmouseenter="toggleMyVariableClass(this)">O</span>
+       <span onmouseenter="toggleMyVariableClass(this)">O</span>
+       <span onmouseenter="toggleMyVariableClass(this)">N</span>
+       <span onmouseenter="toggleMyVariableClass(this)">M</span>
+       <span onmouseenter="toggleMyVariableClass(this)">O</span>
+       <span onmouseenter="toggleMyVariableClass(this)">O</span>
+       <span onmouseenter="toggleMyVariableClass(this)">N</span>
+       <span onmouseenter="toggleMyVariableClass(this)">M</span>
+       <span onmouseenter="toggleMyVariableClass(this)">O</span>
+       <span onmouseenter="toggleMyVariableClass(this)">O</span>
+       <span onmouseenter="toggleMyVariableClass(this)">N</span>
+    </p>
+    </div>
+    </div>
+    
+    
+    <script>
+    function toggleMyVariableClass(myElement) {
+       myElement.classList.toggle('hidden');
+    }
+    </script>
 
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         const moonContainer = document.querySelector('.moon-container');
-    
-        moonContainer.addEventListener('click', function () {
+         moonContainer.addEventListener('click', function () {
             // Capture the moon container using html2canvas
             html2canvas(moonContainer).then(canvas => {
                 // Convert the canvas to a data URL
                 const image = canvas.toDataURL('image/png');
-    
-                // Create a link to download the image
+                 // Create a link to download the image
                 const link = document.createElement('a');
                 link.href = image;
                 link.download = 'moon_capture.png';
@@ -676,13 +773,33 @@ function toggleMyVariableClass(myElement) {
         });
     });
     </script>
+  
+  
+  
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const downloadImage = document.getElementById('download-image');
+         downloadImage.addEventListener('click', function () {
+            // Create a link element to download the zip file
+            const link = document.createElement('a');
+            link.href = './Font/Moon.ttf'; // Path to your font file
+            link.download = 'Moon.ttf';
+             // Trigger the download
+            link.click();
+        });
+    });
+    </script>
+  
+    </body>
     
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-
-
-
-</body>
+    
+    
+    
+    </html>
 
 
-</html>
+
+
+
+
