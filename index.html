@@ -112,24 +112,26 @@
             margin-left: 25%;
             margin-right: 25%;
             max-width: 500px;
+            font-family: sans-serif;
         }
 
         .moon-concept {
-            font-size: 16px;
+            font-size: 1.15vw;
             line-height: 1.4;
             margin: 0;
             padding-top: 10px;
+
         }
 
         .black-section {
             width: 100vw;
-            /* height: 55vh; */
+            /* height: 70vh; */
             background-color: black;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            padding-top: 20px;
+            padding-bottom: 10px;
             z-index: 1;
 
         }
@@ -145,7 +147,7 @@
             display: block;
             width: 50%;
             margin-top: 10px;
-            margin-bottom: 30px;
+            margin-bottom: 70px;
         }
 
         .typeface-header {
@@ -179,7 +181,7 @@
             /* margin-top: -130px; */
         }
 
-        .slider-desc {
+        .moon-comment {
             text-align: center;
             text-transform: uppercase;
         }
@@ -237,9 +239,10 @@
             align-items: center;
             justify-content: center;
             text-transform: uppercase;
-            /* max-height: 105vh; */
+            max-height: 8vh;
             width: 100vw;
             position: relative;
+
         }
 
         .type-tester2 {
@@ -261,18 +264,11 @@
             align-items: center;
             justify-content: center;
             text-transform: uppercase;
-            height: 110vh;
+            max-height: 110vh;
             width: 100vw;
+            padding-bottom: 10vh;
         }
 
-        .moondesign-concept {
-            background-color: black;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-transform: uppercase;
-        }
 
         .type-tester-slider-container {
             display: flex;
@@ -307,7 +303,7 @@
             font-weight: normal;
         }
 
-        .moon-container {
+        .moon-exercise-container {
             width: 28vw;
             height: 28vw;
             border-radius: 50%;
@@ -321,7 +317,7 @@
             transition: transform 0.3s ease;
         }
 
-        .moon-container:hover {
+        .moon-exercise-container:hover {
             transform: scale(1.2);
         }
 
@@ -347,7 +343,7 @@
             font-variation-settings: "SHAP" 1000, "POSE" 1000;
         }
 
-        #max-values-button {
+        #illuminate {
             background-color: white;
             color: black;
             font-family: "Moon", sans-serif;
@@ -360,17 +356,17 @@
             margin-top: 50px;
         }
 
-        #max-values-button:hover {
+        #illuminate:hover {
             background-color: black;
             color: white;
             transform: scale(1.1);
         }
 
-        #max-values-button:active {
+        #illuminate:active {
             transform: scale(0.95);
         }
 
-        .download-icon {
+        .download-font {
             position: fixed;
             top: 30px;
             right: 30px;
@@ -382,26 +378,51 @@
         }
 
 
-        .download-icon:hover {
+        .download-font:hover {
             transform: scale(1.5);
         }
 
-        .download-icon {
+        .download-font {
             cursor: pointer;
         }
 
 
         @media (max-width: 768px) {
-            .download-icon {
+            .download-font {
                 max-width: 8vw;
             }
         }
 
 
         @media (max-width: 480px) {
-            .download-icon {
+            .download-font {
                 max-width: 8vw;
             }
+        }
+
+        .star {
+            position: fixed;
+            pointer-events: none;
+        }
+
+        .star:before,
+        .star:after {
+            position: absolute;
+            top: 0;
+            left: 0;
+            content: '\2726';
+            font-size: 9px;
+        }
+
+        .star:before {
+            color: transparent;
+            text-shadow: 0 0 3px rgb(250, 250, 174);
+        }
+
+        .star:after {
+            background: yellow;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
     </style>
 </head>
@@ -414,8 +435,7 @@
         <source src="Moon.mp4" type="video/mp4">
     </video>
 
-    <img src="Download.png" alt="Download" id="download-image" class="download-icon">
-
+    <img src="Download.png" alt="Download" id="download-image" class="download-font">
     <div class="container">
         <p class="moon-position" contenteditable="plaintext-only">MOON</p>
     </div>
@@ -433,43 +453,32 @@
             </div>
         </div>
     </div>
+
     <div class="type-tester">
         <h2 class="type-tester-heading2">TYPEFACE</h2>
     </div>
     <div class="black-section">
+
         <img class="static-image" src="Moon Phase.jpg" alt="Moon Phase Image">
-
-
-
-
         <div id="slider-container">
             <div id="slider-labels">
                 <span class="slider-label-left">NEW</span>
                 <input id="pose-slider" type="range" min="0" max="1000" value="0">
                 <span class="slider-label-right">FULL</span>
             </div>
-            <p class="slider-desc">Keep Exploring the Darkness</p>
-
-
-
-
+            <p class="moon-comment">Keep Exploring the Darkness</p>
             <div class="alphabet-display">A B C D E F G H I J K L M N </div>
             <div class="alphabet-display">O P Q R S T U V W X Y Z</div>
         </div>
     </div>
 
 
-
-
     <div id="typeface-header" class="typeface-header">MOON</div>
-
-
-
 
     <div class="type-tester2">
         <h2 class="type-tester-heading">TYPE TESTER</h2>
         <p class="moon" contenteditable="plaintext-only">Type here!</p>
-        <!-- Sliders for controlling the text properties -->
+        <!-- Sliders for controlling font size, shape, roundness -->
         <div class="type-tester-slider-container">
             <label for="font-size">Font Size: <span id="current-font-size">50</span>px</label>
             <input id="font-size-slider" type="range" name="font-size" min="50" max="150" value="50"
@@ -490,150 +499,13 @@
         </div>
 
 
-        <button id="max-values-button">ILLUMINATE!</button>
+        <button id="illuminate">ILLUMINATE!</button>
     </div>
-
-
-    <script>
-        const root = document.documentElement;
-        const moonElement = document.querySelector('.moon');
-
-
-
-
-        // Function to set Stretch value
-        function setShape(value) {
-            root.style.setProperty('--type-tester-shape', value);
-            document.getElementById('current-shape').textContent = value;
-        }
-
-
-
-
-        // Function to set Font Size
-        function setFontSize(value) {
-            root.style.setProperty('--FontSize', value + 'px');
-            document.getElementById('current-font-size').textContent = value;
-        }
-
-
-
-
-        // Function to set Roundness (POSE value)
-        function setPosition(value) {
-            root.style.setProperty('--type-tester-position', value);
-            document.getElementById('current-position').textContent = value;
-        }
-    </script>
-
-
-    <script>
-        const typefaceHeader = document.getElementById('typeface-header');
-        const poseSlider = document.getElementById('pose-slider');
-
-
-        poseSlider.addEventListener('input', (event) => {
-            const poseValue = event.target.value;
-            root.style.setProperty('--POSE', poseValue);
-        });
-
-
-        window.onscroll = function () {
-            const scrollHeight = document.querySelector('.container').scrollHeight - window.innerHeight;
-            const scrollPosition = window.scrollY;
-            let percentScrolled = scrollPosition / scrollHeight;
-            percentScrolled = Math.min(Math.max(percentScrolled, 0), 1);
-            const axisValue = Math.round(percentScrolled * 1000);
-            root.style.setProperty('--Position', axisValue);
-
-            const containerHeight = document.querySelector('.container').offsetHeight;
-            const offset = 500;
-            if (scrollPosition > containerHeight - window.innerHeight + offset) {
-                typefaceHeader.classList.add('show-typeface');
-            } else {
-                typefaceHeader.classList.remove('show-typeface');
-            }
-        };
-    </script>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const root = document.documentElement;
-            const moonElement = document.querySelector('.moon');
-
-            function setFontSize(value) {
-                root.style.setProperty('--FontSize', value + 'px');
-                document.getElementById('current-font-size').textContent = value;
-            }
-
-            function setShape(value) {
-                root.style.setProperty('--type-tester-shape', value);
-                document.getElementById('current-shape').textContent = value;
-            }
-
-            function setPosition(value) {
-                root.style.setProperty('--type-tester-position', value);
-                document.getElementById('current-position').textContent = value;
-            }
-
-            function setTextColor(color) {
-                moonElement.style.color = color;
-            }
-
-            const fontSizeSlider = document.getElementById('font-size-slider');
-            const shapeSlider = document.getElementById('shape-slider');
-            const positionSlider = document.getElementById('position-slider');
-            const maxButton = document.getElementById('max-values-button');
-            function animateSliders() {
-                let fontSize = parseInt(fontSizeSlider.value);
-                let shape = parseInt(shapeSlider.value);
-                let position = parseInt(positionSlider.value);
-                const sliderInterval = setInterval(() => {
-                    if (fontSize < 150) fontSize++;
-                    if (shape < 1000) shape += 10;
-                    if (position < 1000) position += 10;
-                    fontSizeSlider.value = fontSize;
-                    setFontSize(fontSize);
-                    shapeSlider.value = shape;
-                    setShape(shape);
-                    positionSlider.value = position;
-                    setPosition(position);
-                    if (fontSize >= 150 && shape >= 1000 && position >= 1000) {
-                        clearInterval(sliderInterval);
-                    }
-                }, 5);
-            }
-
-            function animateColor() {
-                let colorStep = 0;
-                const colorInterval = setInterval(() => {
-                    if (colorStep <= 100) {
-                        const colorValue = Math.round((colorStep / 100) * 255);
-                        const color = `rgb(${colorValue}, ${colorValue}, ${colorValue})`;
-                        setTextColor(color);
-                        colorStep++;
-                    } else {
-                        clearInterval(colorInterval);
-                    }
-                }, 15);
-            }
-            if (maxButton) {
-                maxButton.addEventListener('click', function () {
-                    animateSliders();
-                    animateColor();
-                });
-            }
-        });
-    </script>
-
-
-
-
 
     <div class="type-tester3">
         <h2 class="type-tester-heading2">MAKE YOUR MOON!</h2>
 
-        <div class="moon-container">
+        <div class="moon-exercise-container" id="moon-container">
             <p class="moonn">
                 <span onmouseenter="toggleMyVariableClass(this)">M</span>
                 <span onmouseenter="toggleMyVariableClass(this)">A</span>
@@ -695,6 +567,138 @@
             </p>
         </div>
     </div>
+    </div>
+
+
+    <script>
+        // Type tester sliders
+        const root = document.documentElement;
+        const moonElement = document.querySelector('.moon');
+
+        // Function for Stretch 
+        function setShape(value) {
+            root.style.setProperty('--type-tester-shape', value);
+            document.getElementById('current-shape').textContent = value;
+        }
+
+        // Function for Font-Size
+        function setFontSize(value) {
+            root.style.setProperty('--FontSize', value + 'px');
+            document.getElementById('current-font-size').textContent = value;
+        }
+
+        // Function for Roundness
+        function setPosition(value) {
+            root.style.setProperty('--type-tester-position', value);
+            document.getElementById('current-position').textContent = value;
+        }
+    </script>
+
+
+    <script>
+        // Typeface_Alphabet: Variable Font Effect
+        const typefaceHeader = document.getElementById('typeface-header');
+        const poseSlider = document.getElementById('pose-slider');
+
+        poseSlider.addEventListener('input', (event) => {
+            const poseValue = event.target.value;
+            root.style.setProperty('--POSE', poseValue);
+        });
+
+        window.onscroll = function () {
+            const scrollHeight = document.querySelector('.container').scrollHeight - window.innerHeight;
+            const scrollPosition = window.scrollY;
+            let percentScrolled = scrollPosition / scrollHeight;
+            percentScrolled = Math.min(Math.max(percentScrolled, 0), 1);
+            const axisValue = Math.round(percentScrolled * 1000);
+            root.style.setProperty('--Position', axisValue);
+
+            const containerHeight = document.querySelector('.container').offsetHeight;
+            const offset = 500;
+            if (scrollPosition > containerHeight - window.innerHeight + offset) {
+                typefaceHeader.classList.add('show-typeface');
+            } else {
+                typefaceHeader.classList.remove('show-typeface');
+            }
+        };
+    </script>
+
+    <script>
+        //Iluminate Effect
+        document.addEventListener('DOMContentLoaded', function () {
+            const root = document.documentElement;
+            const moonElement = document.querySelector('.moon');
+            const fontSizeSlider = document.getElementById('font-size-slider');
+            const shapeSlider = document.getElementById('shape-slider');
+            const positionSlider = document.getElementById('position-slider');
+            const illuminateButton = document.getElementById('illuminate');
+
+            function setFontSize(value) {
+                root.style.setProperty('--FontSize', value + 'px');
+                document.getElementById('current-font-size').textContent = value;
+            }
+
+            function setShape(value) {
+                root.style.setProperty('--type-tester-shape', value);
+                document.getElementById('current-shape').textContent = value;
+            }
+
+            function setPosition(value) {
+                root.style.setProperty('--type-tester-position', value);
+                document.getElementById('current-position').textContent = value;
+            }
+
+            function setTextColor(color) {
+                moonElement.style.color = color;
+            }
+
+            function animateSliders() {
+                let fontSize = parseInt(fontSizeSlider.value);
+                let shape = parseInt(shapeSlider.value);
+                let position = parseInt(positionSlider.value);
+
+                const sliderInterval = setInterval(() => {
+                    if (fontSize < 150) fontSize++;
+                    if (shape < 1000) shape += 10;
+                    if (position < 1000) position += 10;
+
+                    fontSizeSlider.value = fontSize;
+                    setFontSize(fontSize);
+
+                    shapeSlider.value = shape;
+                    setShape(shape);
+
+                    positionSlider.value = position;
+                    setPosition(position);
+
+                    if (fontSize >= 150 && shape >= 1000 && position >= 1000) {
+                        clearInterval(sliderInterval);
+                    }
+                }, 5);
+            }
+
+            function animateColor() {
+                let colorStep = 0;
+                const colorInterval = setInterval(() => {
+                    if (colorStep <= 100) {
+                        const colorValue = Math.round((colorStep / 100) * 255);
+                        const color = `rgb(${colorValue}, ${colorValue}, ${colorValue})`;
+                        setTextColor(color);
+                        colorStep++;
+                    } else {
+                        clearInterval(colorInterval);
+                    }
+                }, 15);
+            }
+
+            if (illuminateButton) {
+                illuminateButton.addEventListener('click', function () {
+                    animateSliders();
+                    animateColor();
+                });
+            }
+        });
+    </script>
 
 
     <script>
@@ -704,27 +708,37 @@
     </script>
 
 
-
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
 
     <script>
+        // Get help frmo Chat-GPT
         document.addEventListener('DOMContentLoaded', function () {
-            const moonContainer = document.querySelector('.moon-container');
-            moonContainer.addEventListener('click', function () {
-                // Capture the moon container using html2canvas
+            // Select the .moonn text
+            const moonText = document.querySelector('.moonn');
+            // Select the entire circle container
+            const moonContainer = document.getElementById('moon-container');
+
+            // Add click event listener to the text
+            moonText.addEventListener('click', function () {
                 html2canvas(moonContainer).then(canvas => {
-                    // Convert the canvas to a data URL
+                    // Convert the canvas to a PNG image
                     const image = canvas.toDataURL('image/png');
+
                     // Create a link to download the image
                     const link = document.createElement('a');
                     link.href = image;
                     link.download = 'moon_capture.png';
+
+                    // Trigger the download
                     link.click();
                 });
             });
         });
     </script>
 
+
     <script>
+        // Download the font function
         document.addEventListener('DOMContentLoaded', function () {
             const downloadImage = document.getElementById('download-image');
             downloadImage.addEventListener('click', function () {
@@ -736,272 +750,27 @@
         });
     </script>
 
-
     <script>
-        var colour = "white"; // "random" can be replaced with any valid colour ie: "red"...
-        var sparkles = 500;// increase of decrease for number of sparkles falling
+        window.addEventListener('mousemove', function (e) {
+            var arr = [1, 0.9, 0.8, 0.5, 0.2];
 
+            arr.forEach(function (i) {
+                var x = (1 - i) * 75;
+                var star = document.createElement('div');
 
+                star.className = 'star';
+                star.style.top = e.pageY + Math.round(Math.random() * x - x / 2) + 'px';
+                star.style.left = e.pageX + Math.round(Math.random() * x - x / 2) + 'px';
 
-        var x = ox = 400;
-        var y = oy = 300;
-        var swide = 800;
-        var shigh = 600;
-        var sleft = sdown = 0;
-        var tiny = new Array();
-        var star = new Array();
-        var starv = new Array();
-        var starx = new Array();
-        var stary = new Array();
-        var tinyx = new Array();
-        var tinyy = new Array();
-        var tinyv = new Array();
+                document.body.appendChild(star);
 
-
-        colours = new Array('#ffffff',)
-
-        n = 10;
-        y = 0;
-        x = 0;
-        n6 = (document.getElementById && !document.all);
-        ns = (document.layers);
-        ie = (document.all);
-        d = (ns || ie) ? 'document.' : 'document.getElementById("';
-        a = (ns || n6) ? '' : 'all.';
-        n6r = (n6) ? '")' : '';
-        s = (ns) ? '' : '.style';
-
-        if (ns) {
-            for (i = 0; i < n; i++)
-                document.write('<layer name="dots' + i + '" top=0 left=0 width=' + i / 2 + ' height=' + i / 2 + ' bgcolor=#ff0000></layer>');
-        }
-
-        if (ie)
-            document.write('<div id="con" style="position:absolute;top:0px;left:0px"><div style="position:relative">');
-
-        if (ie || n6) {
-            for (i = 0; i < n; i++)
-                document.write('<div id="dots' + i + '" style="position:absolute;top:0px;left:0px;width:' + i / 2 + 'px;height:' + i / 2 + 'px;background:#ff0000;font-size:' + i / 2 + '"></div>');
-        }
-
-        if (ie)
-            document.write('</div></div>');
-        (ns || n6) ? window.captureEvents(Event.MOUSEMOVE) : 0;
-
-        function Mouse(evnt) {
-            y = (ns || n6) ? evnt.pageY + 4 - window.pageYOffset : event.y + 4;
-            x = (ns || n6) ? evnt.pageX + 1 : event.x + 1;
-        }
-
-        (ns) ? window.onMouseMove = Mouse : document.onmousemove = Mouse;
-
-        function animate() {
-
-
-            o = (ns || n6) ? window.pageYOffset : 0;
-            if (ie) con.style.top = document.body.scrollTop + 'px';
-            for (i = 0; i < n; i++) {
-                var temp1 = eval(d + a + "dots" + i + n6r + s);
-                randcolours = colours[Math.floor(Math.random() * colours.length)];
-                (ns) ? temp1.bgColor = randcolours : temp1.background = randcolours;
-                if (i < n - 1) {
-                    var temp2 = eval(d + a + "dots" + (i + 1) + n6r + s);
-                    temp1.top = parseInt(temp2.top) + 'px';
-                    temp1.left = parseInt(temp2.left) + 'px';
-                }
-                else {
-                    temp1.top = y + o + 'px';
-                    temp1.left = x + 'px';
-                }
-            }
-
-
-            setTimeout("animate()", 10);
-        }
-
-        animate();
-
-        window.onload = function () {
-            if (document.getElementById) {
-                var i, rats, rlef, rdow;
-                for (var i = 0; i < sparkles; i++) {
-                    var rats = createDiv(3, 3);
-                    rats.style.visibility = "hidden";
-                    rats.style.zIndex = "999";
-                    document.body.appendChild(tiny[i] = rats);
-                    starv[i] = 0;
-                    tinyv[i] = 0;
-                    var rats = createDiv(5, 5);
-                    rats.style.backgroundColor = "transparent";
-                    rats.style.visibility = "hidden";
-                    rats.style.zIndex = "999";
-                    var rlef = createDiv(1, 5);
-                    var rdow = createDiv(5, 1);
-                    rats.appendChild(rlef);
-                    rats.appendChild(rdow);
-                    rlef.style.top = "2px";
-                    rlef.style.left = "0px";
-                    rdow.style.top = "0px";
-                    rdow.style.left = "2px";
-                    document.body.appendChild(star[i] = rats);
-                }
-                set_width();
-                sparkle();
-            }
-        }
-
-        // This code is adapted from ________
-        function sparkle() {
-            var c;
-            if (Math.abs(x - ox) > 1 || Math.abs(y - oy) > 1) {
-                ox = x;
-                oy = y;
-                for (c = 0; c < sparkles; c++) if (!starv[c]) {
-                    star[c].style.left = (starx[c] = x) + "px";
-                    star[c].style.top = (stary[c] = y + 1) + "px";
-                    star[c].style.clip = "rect(0px, 5px, 5px, 0px)";
-                    star[c].childNodes[0].style.backgroundColor = star[c].childNodes[1].style.backgroundColor = (colour == "random") ? newColour() : colour;
-                    star[c].style.visibility = "visible";
-                    starv[c] = 50;
-                    break;
-                }
-            }
-            for (c = 0; c < sparkles; c++) {
-                if (starv[c]) update_star(c);
-                if (tinyv[c]) update_tiny(c);
-            }
-            setTimeout("sparkle()", 40);
-        }
-
-
-
-        function update_star(i) {
-            if (--starv[i] == 25) star[i].style.clip = "rect(1px, 4px, 4px, 1px)";
-            if (starv[i]) {
-                stary[i] += 1 + Math.random() * 3;
-                starx[i] += (i % 5 - 2) / 5;
-                if (stary[i] < shigh + sdown) {
-                    star[i].style.top = stary[i] + "px";
-                    star[i].style.left = starx[i] + "px";
-                }
-                else {
-                    star[i].style.visibility = "hidden";
-                    starv[i] = 0;
-                    return;
-                }
-            }
-            else {
-                tinyv[i] = 50;
-                tiny[i].style.top = (tinyy[i] = stary[i]) + "px";
-                tiny[i].style.left = (tinyx[i] = starx[i]) + "px";
-                tiny[i].style.width = "2px";
-                tiny[i].style.height = "2px";
-                tiny[i].style.backgroundColor = star[i].childNodes[0].style.backgroundColor;
-                star[i].style.visibility = "hidden";
-                tiny[i].style.visibility = "visible"
-            }
-        }
-
-        function update_tiny(i) {
-            if (--tinyv[i] == 25) {
-                tiny[i].style.width = "1px";
-                tiny[i].style.height = "1px";
-            }
-            if (tinyv[i]) {
-                tinyy[i] += 1 + Math.random() * 3;
-                tinyx[i] += (i % 5 - 2) / 5;
-                if (tinyy[i] < shigh + sdown) {
-                    tiny[i].style.top = tinyy[i] + "px";
-                    tiny[i].style.left = tinyx[i] + "px";
-                }
-                else {
-                    tiny[i].style.visibility = "hidden";
-                    tinyv[i] = 0;
-                    return;
-                }
-            }
-            else tiny[i].style.visibility = "hidden";
-        }
-
-        document.onmousemove = mouse;
-        function mouse(e) {
-            if (e) {
-                y = e.pageY;
-                x = e.pageX;
-            }
-            else {
-                set_scroll();
-                y = event.y + sdown;
-                x = event.x + sleft;
-            }
-        }
-
-        window.onscroll = set_scroll;
-        function set_scroll() {
-            if (typeof (self.pageYOffset) == 'number') {
-                sdown = self.pageYOffset;
-                sleft = self.pageXOffset;
-            }
-            else if (document.body && (document.body.scrollTop || document.body.scrollLeft)) {
-                sdown = document.body.scrollTop;
-                sleft = document.body.scrollLeft;
-            }
-            else if (document.documentElement && (document.documentElement.scrollTop || document.documentElement.scrollLeft)) {
-                sleft = document.documentElement.scrollLeft;
-                sdown = document.documentElement.scrollTop;
-            }
-            else {
-                sdown = 0;
-                sleft = 0;
-            }
-        }
-
-        window.onresize = set_width;
-        function set_width() {
-            var sw_min = 999999;
-            var sh_min = 999999;
-            if (document.documentElement && document.documentElement.clientWidth) {
-                if (document.documentElement.clientWidth > 0) sw_min = document.documentElement.clientWidth;
-                if (document.documentElement.clientHeight > 0) sh_min = document.documentElement.clientHeight;
-            }
-            if (typeof (self.innerWidth) == 'number' && self.innerWidth) {
-                if (self.innerWidth > 0 && self.innerWidth < sw_min) sw_min = self.innerWidth;
-                if (self.innerHeight > 0 && self.innerHeight < sh_min) sh_min = self.innerHeight;
-            }
-            if (document.body.clientWidth) {
-                if (document.body.clientWidth > 0 && document.body.clientWidth < sw_min) sw_min = document.body.clientWidth;
-                if (document.body.clientHeight > 0 && document.body.clientHeight < sh_min) sh_min = document.body.clientHeight;
-            }
-            if (sw_min == 999999 || sh_min == 999999) {
-                sw_min = 800;
-                sh_min = 600;
-            }
-            swide = sw_min;
-            shigh = sh_min;
-        }
-
-        function createDiv(height, width) {
-            var div = document.createElement("div");
-            div.style.position = "absolute";
-            div.style.height = height + "px";
-            div.style.width = width + "px";
-            div.style.overflow = "hidden";
-            return (div);
-        }
-
-
-        function newColour() {
-            var c = new Array();
-            c[0] = 255;
-            c[1] = Math.floor(Math.random() * 256);
-            c[2] = Math.floor(Math.random() * (256 - c[1] / 2));
-            c.sort(function () { return (0.5 - Math.random()); });
-            return ("rgb(" + c[0] + ", " + c[1] + ", " + c[2] + ")");
-        }
+                window.setTimeout(function () {
+                    document.body.removeChild(star);
+                }, Math.round(Math.random() * i * 600));
+            });
+        }, false);
     </script>
 
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 
 </body>
 
