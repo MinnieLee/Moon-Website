@@ -772,10 +772,11 @@
                 sparkle.style.position = "absolute";
                 sparkle.style.width = "6px";
                 sparkle.style.height = "6px";
-                sparkle.style.background = "radial-gradient(circle, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 0) 70%)";
+                sparkle.style.background = "white";
                 sparkle.style.pointerEvents = "none";
                 sparkle.style.visibility = "hidden";
                 sparkle.style.zIndex = "9999";
+                sparkle.style.clipPath = "polygon(0% 45%, 45% 45%, 45% 0%, 55% 0%, 55% 45%, 100% 45%, 100% 55%, 55% 55%, 55% 100%, 45% 100%, 45% 55%, 0% 55%, 0% 45%)";
                 document.body.appendChild(sparkle);
                 star[i] = sparkle;
                 starv[i] = 0;
