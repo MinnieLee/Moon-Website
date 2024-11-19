@@ -242,71 +242,71 @@
 
         }
 
-.typeface-blackspace {
-    background-color: black;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-transform: uppercase;
-    height: 150px;
-    width: 100vw;
-    position: relative;
-}
+        .typeface-blackspace {
+            background-color: black;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-transform: uppercase;
+            height: 150px;
+            width: 100vw;
+            position: relative;
+        }
 
-@media (max-width: 1024px) {
-    .typeface-blackspace {
-        height: 120px;
-        justify-content: flex-start; 
-    }
-}
+        @media (max-width: 1024px) {
+            .typeface-blackspace {
+                height: 120px;
+                justify-content: flex-start;
+            }
+        }
 
-@media (max-width: 768px) {
-    .typeface-blackspace {
-        height: 100px;
-        font-size: 14px; 
-    }
-}
+        @media (max-width: 768px) {
+            .typeface-blackspace {
+                height: 100px;
+                font-size: 14px;
+            }
+        }
 
-@media (max-width: 480px) {
-    .typeface-blackspace {
-        height: 40px;
-        flex-direction: row; 
-    }
-}
+        @media (max-width: 480px) {
+            .typeface-blackspace {
+                height: 40px;
+                flex-direction: row;
+            }
+        }
 
-.typeface-blackspace2 {
-    background-color: black;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-transform: uppercase;
-    height: 50px;
-    width: 100vw;
-    position: relative;
-}
+        .typeface-blackspace2 {
+            background-color: black;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-transform: uppercase;
+            height: 50px;
+            width: 100vw;
+            position: relative;
+        }
 
-@media (max-width: 1024px) {
-    .typeface-blackspace2 {
-        height: 120px;
-        justify-content: flex-start; 
-    }
-}
+        @media (max-width: 1024px) {
+            .typeface-blackspace2 {
+                height: 120px;
+                justify-content: flex-start;
+            }
+        }
 
-@media (max-width: 768px) {
-    .typeface-blackspace2 {
-        height: 100px;
-        font-size: 14px; 
-    }
-}
+        @media (max-width: 768px) {
+            .typeface-blackspace2 {
+                height: 100px;
+                font-size: 14px;
+            }
+        }
 
-@media (max-width: 480px) {
-    .typeface-blackspace2 {
-        height: 40px;
-        flex-direction: row; 
-    }
-}
+        @media (max-width: 480px) {
+            .typeface-blackspace2 {
+                height: 40px;
+                flex-direction: row;
+            }
+        }
 
         .type-tester2 {
             background-color: black;
@@ -476,143 +476,144 @@
 
     <img src="Download.png" alt="Download" id="download-image" class="download-font">
     <main>
-    <div class="container">
-        <p class="moon-position" contenteditable="plaintext-only">MOON</p>
-    </div>
+        <div class="container">
+            <p class="moon-position" contenteditable="plaintext-only">MOON</p>
+        </div>
 
-    <div class="design-concept">
-        <img class="moonphase" src="Design.jpg" alt="Design Image">
-        <div class="design-text">
-            <div class="design-concept-center">
-                <h1 class="design-concept-heading">DESIGN CONCEPT</h1>
-                <p class="moon-concept">
-                    The font 'MOON' draws its inspiration from the changing phases of the moon. Its letterforms feature
-                    crescent-shaped counters that progressively transform into circular forms, mirroring the moon’s
-                    progression from a crescent to a full moon.
+        <div class="design-concept">
+            <img class="moonphase" src="Design.jpg" alt="Design Image">
+            <div class="design-text">
+                <div class="design-concept-center">
+                    <h1 class="design-concept-heading">DESIGN CONCEPT</h1>
+                    <p class="moon-concept">
+                        The font 'MOON' draws its inspiration from the changing phases of the moon. Its letterforms
+                        feature
+                        crescent-shaped counters that progressively transform into circular forms, mirroring the moon’s
+                        progression from a crescent to a full moon.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="typeface-blackspace"></div>
+        <div class="type-tester">
+            <h2 class="type-tester-heading2">TYPEFACE</h2>
+        </div>
+        <div class="black-section">
+
+            <img class="static-image" src="Moon Phase.jpg" alt="Moon Phase Image">
+            <div id="slider-container">
+                <div id="slider-labels">
+                    <span class="slider-label-left">NEW</span>
+                    <input id="pose-slider" type="range" min="0" max="1000" value="0">
+                    <span class="slider-label-right">FULL</span>
+                </div>
+                <p class="moon-comment">Keep Exploring the Darkness</p>
+                <div class="alphabet-display">A B C D E F G H I J K L M N </div>
+                <div class="alphabet-display">O P Q R S T U V W X Y Z</div>
+            </div>
+        </div>
+
+
+        <div id="typeface-header" class="typeface-header">MOON</div>
+
+        <div class="typeface-blackspace2"></div>
+        <div class="type-tester2">
+            <h2 class="type-tester-heading">TYPE TESTER</h2>
+            <p class="moon" contenteditable="plaintext-only">Type here!</p>
+            <!-- Sliders for controlling font size, shape, roundness -->
+            <div class="type-tester-slider-container">
+                <label for="font-size">Font Size: <span id="current-font-size">50</span>px</label>
+                <input id="font-size-slider" type="range" name="font-size" min="50" max="150" value="50"
+                    oninput="setFontSize(this.value)">
+                <span>150px</span>
+            </div>
+            <div class="type-tester-slider-container">
+                <label for="Shape">Stretch: <span id="current-shape">0</span></label>
+                <input id="shape-slider" type="range" name="Shape" min="0" max="1000" value="0"
+                    oninput="setShape(this.value)">
+                <span>1000</span>
+            </div>
+            <div class="type-tester-slider-container">
+                <label for="Position">Roundness: <span id="current-position">0</span></label>
+                <input id="position-slider" type="range" name="Position" min="0" max="1000" value="0"
+                    oninput="setPosition(this.value)">
+                <span>1000</span>
+            </div>
+
+
+            <button id="illuminate">ILLUMINATE!</button>
+        </div>
+
+        <div class="typeface-blackspace2"></div>
+        <div class="type-tester3">
+            <h2 class="type-tester-heading2">MAKE YOUR MOON!</h2>
+
+            <div class="moon-exercise-container" id="moon-container">
+                <p class="moonn">
+                    <span onmouseenter="toggleMyVariableClass(this)">M</span>
+                    <span onmouseenter="toggleMyVariableClass(this)">A</span>
+                    <span onmouseenter="toggleMyVariableClass(this)">K</span>
+                    <span onmouseenter="toggleMyVariableClass(this)">E</span>
+                    <span onmouseenter="toggleMyVariableClass(this)">Y</span>
+                    <span onmouseenter="toggleMyVariableClass(this)">O</span>
+                    <span onmouseenter="toggleMyVariableClass(this)">U</span>
+                    <span onmouseenter="toggleMyVariableClass(this)">R</span>
+                    <span onmouseenter="toggleMyVariableClass(this)">O</span>
+                    <span onmouseenter="toggleMyVariableClass(this)">W</span>
+                    <span onmouseenter="toggleMyVariableClass(this)">N</span>
+                    <span onmouseenter="toggleMyVariableClass(this)">M</span>
+                    <span onmouseenter="toggleMyVariableClass(this)">O</span>
+                    <span onmouseenter="toggleMyVariableClass(this)">O</span>
+                    <span onmouseenter="toggleMyVariableClass(this)">N</span>
+                    <span onmouseenter="toggleMyVariableClass(this)">M</span>
+                    <span onmouseenter="toggleMyVariableClass(this)">A</span>
+                    <span onmouseenter="toggleMyVariableClass(this)">K</span>
+                    <span onmouseenter="toggleMyVariableClass(this)">E</span>
+                    <span onmouseenter="toggleMyVariableClass(this)">Y</span>
+                    <span onmouseenter="toggleMyVariableClass(this)">O</span>
+                    <span onmouseenter="toggleMyVariableClass(this)">U</span>
+                    <span onmouseenter="toggleMyVariableClass(this)">R</span>
+                    <span onmouseenter="toggleMyVariableClass(this)">O</span>
+                    <span onmouseenter="toggleMyVariableClass(this)">W</span>
+                    <span onmouseenter="toggleMyVariableClass(this)">N</span>
+                    <span onmouseenter="toggleMyVariableClass(this)">M</span>
+                    <span onmouseenter="toggleMyVariableClass(this)">O</span>
+                    <span onmouseenter="toggleMyVariableClass(this)">O</span>
+                    <span onmouseenter="toggleMyVariableClass(this)">N</span>
+                    <span onmouseenter="toggleMyVariableClass(this)">M</span>
+                    <span onmouseenter="toggleMyVariableClass(this)">A</span>
+                    <span onmouseenter="toggleMyVariableClass(this)">K</span>
+                    <span onmouseenter="toggleMyVariableClass(this)">E</span>
+                    <span onmouseenter="toggleMyVariableClass(this)">Y</span>
+                    <span onmouseenter="toggleMyVariableClass(this)">O</span>
+                    <span onmouseenter="toggleMyVariableClass(this)">U</span>
+                    <span onmouseenter="toggleMyVariableClass(this)">R</span>
+                    <span onmouseenter="toggleMyVariableClass(this)">O</span>
+                    <span onmouseenter="toggleMyVariableClass(this)">W</span>
+                    <span onmouseenter="toggleMyVariableClass(this)">N</span>
+                    <span onmouseenter="toggleMyVariableClass(this)">M</span>
+                    <span onmouseenter="toggleMyVariableClass(this)">O</span>
+                    <span onmouseenter="toggleMyVariableClass(this)">O</span>
+                    <span onmouseenter="toggleMyVariableClass(this)">N</span>
+                    <span onmouseenter="toggleMyVariableClass(this)">M</span>
+                    <span onmouseenter="toggleMyVariableClass(this)">O</span>
+                    <span onmouseenter="toggleMyVariableClass(this)">O</span>
+                    <span onmouseenter="toggleMyVariableClass(this)">N</span>
+                    <span onmouseenter="toggleMyVariableClass(this)">M</span>
+                    <span onmouseenter="toggleMyVariableClass(this)">O</span>
+                    <span onmouseenter="toggleMyVariableClass(this)">O</span>
+                    <span onmouseenter="toggleMyVariableClass(this)">N</span>
+                    <span onmouseenter="toggleMyVariableClass(this)">M</span>
+                    <span onmouseenter="toggleMyVariableClass(this)">O</span>
+                    <span onmouseenter="toggleMyVariableClass(this)">O</span>
+                    <span onmouseenter="toggleMyVariableClass(this)">N</span>
                 </p>
             </div>
         </div>
-    </div>
-
-    <div class= "typeface-blackspace"></div>
-    <div class="type-tester">
-        <h2 class="type-tester-heading2">TYPEFACE</h2>
-    </div>
-    <div class="black-section">
-
-        <img class="static-image" src="Moon Phase.jpg" alt="Moon Phase Image">
-        <div id="slider-container">
-            <div id="slider-labels">
-                <span class="slider-label-left">NEW</span>
-                <input id="pose-slider" type="range" min="0" max="1000" value="0">
-                <span class="slider-label-right">FULL</span>
-            </div>
-            <p class="moon-comment">Keep Exploring the Darkness</p>
-            <div class="alphabet-display">A B C D E F G H I J K L M N </div>
-            <div class="alphabet-display">O P Q R S T U V W X Y Z</div>
-        </div>
-    </div>
-
-
-    <div id="typeface-header" class="typeface-header">MOON</div>
-
-    <div class= "typeface-blackspace2"></div>
-    <div class="type-tester2">
-        <h2 class="type-tester-heading">TYPE TESTER</h2>
-        <p class="moon" contenteditable="plaintext-only">Type here!</p>
-        <!-- Sliders for controlling font size, shape, roundness -->
-        <div class="type-tester-slider-container">
-            <label for="font-size">Font Size: <span id="current-font-size">50</span>px</label>
-            <input id="font-size-slider" type="range" name="font-size" min="50" max="150" value="50"
-                oninput="setFontSize(this.value)">
-            <span>150px</span>
-        </div>
-        <div class="type-tester-slider-container">
-            <label for="Shape">Stretch: <span id="current-shape">0</span></label>
-            <input id="shape-slider" type="range" name="Shape" min="0" max="1000" value="0"
-                oninput="setShape(this.value)">
-            <span>1000</span>
-        </div>
-        <div class="type-tester-slider-container">
-            <label for="Position">Roundness: <span id="current-position">0</span></label>
-            <input id="position-slider" type="range" name="Position" min="0" max="1000" value="0"
-                oninput="setPosition(this.value)">
-            <span>1000</span>
         </div>
 
-
-        <button id="illuminate">ILLUMINATE!</button>
-    </div>
-
-    <div class= "typeface-blackspace2"></div>
-    <div class="type-tester3">
-        <h2 class="type-tester-heading2">MAKE YOUR MOON!</h2>
-
-        <div class="moon-exercise-container" id="moon-container">
-            <p class="moonn">
-                <span onmouseenter="toggleMyVariableClass(this)">M</span>
-                <span onmouseenter="toggleMyVariableClass(this)">A</span>
-                <span onmouseenter="toggleMyVariableClass(this)">K</span>
-                <span onmouseenter="toggleMyVariableClass(this)">E</span>
-                <span onmouseenter="toggleMyVariableClass(this)">Y</span>
-                <span onmouseenter="toggleMyVariableClass(this)">O</span>
-                <span onmouseenter="toggleMyVariableClass(this)">U</span>
-                <span onmouseenter="toggleMyVariableClass(this)">R</span>
-                <span onmouseenter="toggleMyVariableClass(this)">O</span>
-                <span onmouseenter="toggleMyVariableClass(this)">W</span>
-                <span onmouseenter="toggleMyVariableClass(this)">N</span>
-                <span onmouseenter="toggleMyVariableClass(this)">M</span>
-                <span onmouseenter="toggleMyVariableClass(this)">O</span>
-                <span onmouseenter="toggleMyVariableClass(this)">O</span>
-                <span onmouseenter="toggleMyVariableClass(this)">N</span>
-                <span onmouseenter="toggleMyVariableClass(this)">M</span>
-                <span onmouseenter="toggleMyVariableClass(this)">A</span>
-                <span onmouseenter="toggleMyVariableClass(this)">K</span>
-                <span onmouseenter="toggleMyVariableClass(this)">E</span>
-                <span onmouseenter="toggleMyVariableClass(this)">Y</span>
-                <span onmouseenter="toggleMyVariableClass(this)">O</span>
-                <span onmouseenter="toggleMyVariableClass(this)">U</span>
-                <span onmouseenter="toggleMyVariableClass(this)">R</span>
-                <span onmouseenter="toggleMyVariableClass(this)">O</span>
-                <span onmouseenter="toggleMyVariableClass(this)">W</span>
-                <span onmouseenter="toggleMyVariableClass(this)">N</span>
-                <span onmouseenter="toggleMyVariableClass(this)">M</span>
-                <span onmouseenter="toggleMyVariableClass(this)">O</span>
-                <span onmouseenter="toggleMyVariableClass(this)">O</span>
-                <span onmouseenter="toggleMyVariableClass(this)">N</span>
-                <span onmouseenter="toggleMyVariableClass(this)">M</span>
-                <span onmouseenter="toggleMyVariableClass(this)">A</span>
-                <span onmouseenter="toggleMyVariableClass(this)">K</span>
-                <span onmouseenter="toggleMyVariableClass(this)">E</span>
-                <span onmouseenter="toggleMyVariableClass(this)">Y</span>
-                <span onmouseenter="toggleMyVariableClass(this)">O</span>
-                <span onmouseenter="toggleMyVariableClass(this)">U</span>
-                <span onmouseenter="toggleMyVariableClass(this)">R</span>
-                <span onmouseenter="toggleMyVariableClass(this)">O</span>
-                <span onmouseenter="toggleMyVariableClass(this)">W</span>
-                <span onmouseenter="toggleMyVariableClass(this)">N</span>
-                <span onmouseenter="toggleMyVariableClass(this)">M</span>
-                <span onmouseenter="toggleMyVariableClass(this)">O</span>
-                <span onmouseenter="toggleMyVariableClass(this)">O</span>
-                <span onmouseenter="toggleMyVariableClass(this)">N</span>
-                <span onmouseenter="toggleMyVariableClass(this)">M</span>
-                <span onmouseenter="toggleMyVariableClass(this)">O</span>
-                <span onmouseenter="toggleMyVariableClass(this)">O</span>
-                <span onmouseenter="toggleMyVariableClass(this)">N</span>
-                <span onmouseenter="toggleMyVariableClass(this)">M</span>
-                <span onmouseenter="toggleMyVariableClass(this)">O</span>
-                <span onmouseenter="toggleMyVariableClass(this)">O</span>
-                <span onmouseenter="toggleMyVariableClass(this)">N</span>
-                <span onmouseenter="toggleMyVariableClass(this)">M</span>
-                <span onmouseenter="toggleMyVariableClass(this)">O</span>
-                <span onmouseenter="toggleMyVariableClass(this)">O</span>
-                <span onmouseenter="toggleMyVariableClass(this)">N</span>
-            </p>
-        </div>
-    </div>
-    </div>
-
-</main>
+    </main>
 
 
     <script>
