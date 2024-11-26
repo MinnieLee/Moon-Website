@@ -1,0 +1,465 @@
+:root {
+    --Position: 0;
+    --POSE: 0;
+    --Shape: 0;
+    --SHAP: 0;
+    --FontSize: 50px;
+    --type-tester-shape: 0;
+    --type-tester-position: 0;
+}
+
+
+@font-face {
+    font-family: "Moon";
+    src: url("./Font/Moon.ttf");
+}
+
+
+body {
+    margin: 0;
+    background-color: black;
+    color: white;
+    font-family: "Moon", sans-serif;
+    font-size: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.moon {
+    font-variation-settings: "POSE" var(--type-tester-position), "SHAP" var(--type-tester-shape);
+    font-size: var(--FontSize);
+    border: 2px solid white;
+    padding: 30px;
+    margin: 30px auto;
+    text-align: center;
+    width: 80%;
+    max-width: 1200px;
+    box-sizing: border-box;
+}
+
+.video-background {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70%;
+    height: auto;
+    object-fit: cover;
+    z-index: -1;
+}
+
+.container {
+    width: 100vw;
+    height: 200vh;
+    position: relative;
+    z-index: 1;
+}
+
+.moon-position {
+    width: 100vw;
+    height: 100vh;
+    position: sticky;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    font-size: 110px;
+    color: white;
+    margin: 0;
+    z-index: 2;
+    font-variation-settings: "POSE" var(--Position), "SHAP" var(--Shape);
+}
+
+.design-concept {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: auto;
+    min-height: 60vh;
+    background-color: black;
+}
+
+.design-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    width: 90%;
+    max-width: 80%;
+}
+
+.design-text p {
+    margin-left: 25%;
+    margin-right: 25%;
+    max-width: 500px;
+    font-family: sans-serif;
+}
+
+.moon-concept {
+    font-size: 1.15vw;
+    line-height: 1.4;
+    margin: 0;
+    padding-top: 10px;
+
+}
+
+.black-section {
+    width: 100vw;
+    /* height: 70vh; */
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 10px;
+    z-index: 1;
+
+}
+
+.moonphase {
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    object-fit: cover;
+}
+
+.static-image {
+    display: block;
+    width: 50%;
+    margin-top: 10px;
+    margin-bottom: 70px;
+}
+
+.typeface-header {
+    position: fixed;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 70px;
+    opacity: 0;
+    transition: opacity 0.5s ease, font-size 0.5s ease;
+    z-index: 3;
+}
+
+.h1 {
+    position: fixed;
+    justify-content: center;
+    top: 10px;
+    left: 50%;
+    font-size: 40px;
+}
+
+.show-typeface {
+    opacity: 1;
+}
+
+#slider-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* margin-top: -130px; */
+}
+
+.moon-comment {
+    text-align: center;
+    text-transform: uppercase;
+}
+
+#slider-labels {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 350px;
+    height: 5px;
+    margin-bottom: 0px;
+}
+
+.slider-label-left,
+.slider-label-right {
+    font-size: 40px;
+    color: white;
+    white-space: nowrap;
+}
+
+input[type="range"] {
+    width: 300px;
+    height: 10px;
+    background: gray;
+    outline: none;
+    -webkit-appearance: none;
+    appearance: none;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+    margin: 0 5px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: #ffffff;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.alphabet-display {
+    font-family: "Moon", sans-serif;
+    font-size: 7vw;
+    font-variation-settings: "POSE" var(--POSE), "SHAP" 0;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.type-tester {
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    max-height: 8vh;
+    width: 100vw;
+    position: relative;
+
+}
+
+.typeface-blackspace {
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    height: 150px;
+    width: 100vw;
+    position: relative;
+}
+
+@media (max-width: 1024px) {
+    .typeface-blackspace {
+        height: 120px;
+        justify-content: flex-start;
+    }
+}
+
+@media (max-width: 768px) {
+    .typeface-blackspace {
+        height: 100px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .typeface-blackspace {
+        height: 40px;
+        flex-direction: row;
+    }
+}
+
+.typeface-blackspace2 {
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    height: 50px;
+    width: 100vw;
+    position: relative;
+}
+
+@media (max-width: 1024px) {
+    .typeface-blackspace2 {
+        height: 120px;
+        justify-content: flex-start;
+    }
+}
+
+@media (max-width: 768px) {
+    .typeface-blackspace2 {
+        height: 100px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .typeface-blackspace2 {
+        height: 40px;
+        flex-direction: row;
+    }
+}
+
+.type-tester2 {
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    /* height: 120vh; */
+    width: 100vw;
+    position: relative;
+}
+
+.type-tester3 {
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    max-height: 110vh;
+    width: 100vw;
+    padding-bottom: 10vh;
+}
+
+
+.type-tester-slider-container {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.design-concept-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.design-concept-heading {
+    font-size: 4vw;
+    font-weight: normal;
+    text-transform: uppercase;
+    margin: 0;
+    padding-bottom: 10px;
+}
+
+.type-tester-heading {
+    font-size: 6.5vw;
+    font-weight: normal;
+}
+
+.type-tester-heading2 {
+    font-size: 6vw;
+    font-weight: normal;
+}
+
+.moon-exercise-container {
+    width: 28vw;
+    height: 28vw;
+    border-radius: 50%;
+    background-color: #e7e9ed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    text-align: center;
+    margin: 5vh auto;
+    transition: transform 0.3s ease;
+}
+
+.moon-exercise-container:hover {
+    transform: scale(1.2);
+}
+
+.moonn {
+    font-family: "Moon", sans-serif;
+    color: black;
+    font-variation-settings: "SHAP" 0;
+    font-size: 5.5vw;
+    line-height: 0.8em;
+    word-break: break-all;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.moonn span {
+    transition: font-variation-settings 0.5s, opacity 0.5s;
+    display: inline-block;
+}
+
+.hidden {
+    opacity: 0.25;
+    font-variation-settings: "SHAP" 1000, "POSE" 1000;
+}
+
+#illuminate {
+    background-color: white;
+    color: black;
+    font-family: "Moon", sans-serif;
+    font-size: 30px;
+    padding: 10px 40px;
+    border: 2px solid white;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, transform 0.3s;
+    margin-top: 50px;
+    margin-bottom:10px;
+}
+
+.credit{ 
+    font-family: "Moon", sans-serif;
+    font-size: 30px;
+    padding: 10px 40px;
+    color: white;
+    padding: 10px 40px;
+    margin-top: 50px;
+}
+
+#illuminate:hover {
+    background-color: black;
+    color: white;
+    transform: scale(1.1);
+}
+
+#illuminate:active {
+    transform: scale(0.95);
+}
+
+.download-font {
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    max-width: 6.5vw;
+    height: auto;
+    cursor: pointer;
+    z-index: 10;
+    transition: transform 0.3s ease;
+}
+
+
+.download-font:hover {
+    transform: scale(1.5);
+}
+
+.download-font {
+    cursor: pointer;
+}
+
+
+@media (max-width: 768px) {
+    .download-font {
+        max-width: 8vw;
+    }
+}
+
+
+@media (max-width: 480px) {
+    .download-font {
+        max-width: 8vw;
+    }
+}
